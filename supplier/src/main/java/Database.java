@@ -67,6 +67,73 @@ public class Database {
 
 
 
+    ////////////////item:****************
+
+    public String add_item(Item item) {
+        String output = "";
+
+        try (Statement stmt  = conn.createStatement()){
+            // loop through the result set
+            stmt.executeUpdate("INSERT INTO Item " + "VALUES (\"" +item.catalogId+"\",\"" +
+                    item.supplierId +"\",\"" + item.price  +")");
+            output = "Add item succeeded";
+        } catch (SQLException e) {
+            output = "Add item failed  ";
+        }
+        return output;
+    }
+
+
+    private String updateItem(String supplierId ,String CatalogId, String new_price_value){
+
+        String sql = "UPDATE Item SET " +"price"+ "= ?  where supplierId = ? AND CatalogId = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+
+            pstmt.setInt(1, Integer.parseInt(new_price_value));
+            pstmt.setString(2, supplierId);
+            pstmt.setString(3, CatalogId);
+
+            pstmt.executeUpdate();
+            return "updateItem succeed";
+        } catch (SQLException e) {
+            return "updateItem failed";
+        }
+
+    }
+
+
+
+    public Item select_Item(String supplierId,String catalogId ) {
+        String sql = "SELECT * FROM Item WHERE catalogId=" +catalogId+ " AND supplierId =" + supplierId  ;
+        Item newItem = new Item();
+        try (Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+
+                newItem.supplierId = rs.getString("supplierId");
+                newItem.catalogId = rs.getString("catalogId");
+                newItem.price =  rs.getInt("price");
+
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select Item");
+
+        }
+        return newItem;
+    }
+
+
+
+
+
+    //*********************************end item::
+
+
+
 }
 
 
