@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by מחשב on 17/04/2018.
@@ -140,7 +142,7 @@ public class Database {
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Order " + "VALUES (\"" +order.item+"\",\"" +
+            stmt.executeUpdate("INSERT INTO Oredrs " + "VALUES (\"" +order.supplierId+"\",\"" + order.orderId +"\",\""+
                     order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +")");
             output = "Add order succeeded";
         } catch (SQLException e) {
@@ -153,7 +155,7 @@ public class Database {
 
     private String updateOrder(String item ,String filed, String value){
 
-        String sql = "UPDATE Order SET " +filed+ "= ?  where item = ?";
+        String sql = "UPDATE Oredrs SET " +filed+ "= ?  where item = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(2, item);
             if(filed =="quanttity") {
@@ -163,7 +165,7 @@ public class Database {
                 pstmt.setDate(1, Date.valueOf(value));
             }
             else if(filed =="recived" ){
-                pstmt.setBoolean(1, Boolean.valueOf(value));
+                pstmt.setInt(1, Integer.parseInt(value));
             }
 
             pstmt.executeUpdate();
@@ -174,19 +176,27 @@ public class Database {
 
     }
 
-    public Order select_Order(String item ) {
-        String sql = "SELECT * FROM Oredr WHERE item=" +item  ;
-        Order newOrder = new Order();
+    public List<Order> select_Order(String supplierId) {
+        String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId  ;
+
+
+        List<Order> newOrder = new ArrayList<Order>();
+
+
         try (Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
             while (rs.next()) {
-                newOrder.item = rs.getString("item");
-                newOrder.quanttity = rs.getString("quanttity");
-                newOrder.arrivalDate = rs.getDate("arrivalDate");
-                newOrder.orderDate = rs.getDate("orderDate");
-                newOrder.recived=rs.getBoolean("recived");
+
+                Order tmpO = new Order();
+                tmpO.supplierId = rs.getString("supplierId");
+                tmpO.orderId = rs.getString("orderId");
+                tmpO.quanttity = rs.getString("quanttity");
+                tmpO.arrivalDate = rs.getDate("arrivalDate");
+                tmpO.orderDate = rs.getDate("orderDate");
+                tmpO.recived=rs.getInt("recived");
+                newOrder.add(tmpO);
 
             }
         } catch (SQLException e) {
@@ -196,6 +206,7 @@ public class Database {
         }
         return newOrder;
     }
+
 
 
 
