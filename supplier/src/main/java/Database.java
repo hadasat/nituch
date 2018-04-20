@@ -21,7 +21,7 @@ public class Database {
                     supplier.bankAccount +"\",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ ")");
             output = "Add supplier succeeded";
         } catch (SQLException e) {
-            output = "Add supplier failed because: " + e.getMessage();
+            output = "Add supplier failed because: " ;
         }
         return output;
     }
@@ -212,6 +212,143 @@ public class Database {
 
 
     ///////************************************
+
+
+
+    ////discount:_______________________------------
+
+
+
+    public String add_Discount(Discount discount) {
+        String output = "";
+
+        try (Statement stmt  = conn.createStatement()){
+            // loop through the result set
+            stmt.executeUpdate("INSERT INTO Discount " + "VALUES (\"" +discount.catalogId +"\"," +
+                    discount.quanttity +"," + discount.discount  );
+            output = "Add supplier succeeded";
+        } catch (SQLException e) {
+            output = "Add supplier failed because: " ;
+        }
+        return output;
+    }
+
+    private String updateDiscount(String catalogId ,String quanttity ,String newDiscount){
+
+        String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, Integer.parseInt(newDiscount));
+            pstmt.setString(2, catalogId);
+            pstmt.setInt(3, Integer.parseInt(quanttity));
+
+            pstmt.executeUpdate();
+            return "succeed";
+        } catch (SQLException e) {
+            return "failed";
+        }
+
+    }
+
+    public Discount select_Discount(String catalogId,String quanttity) {
+        String sql = "SELECT * FROM Discount WHERE catalogId=" +catalogId+ " AND quanttity =" + quanttity  ;
+        Discount d = new Discount();
+        try (Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+
+                d.catalogId = rs.getString("catalogId");
+                d.quanttity = rs.getInt("quanttity");
+                d.discount = rs.getInt("discount");
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select Discount");
+
+        }
+        return d;
+    }
+
+
+
+    ////////////**********************************
+
+    ////contact:_______________________------------
+
+
+
+    public String add_Contact(Contact con) {
+        String output = "";
+
+        try (Statement stmt  = conn.createStatement()){
+            // loop through the result set
+            stmt.executeUpdate("INSERT INTO Contact " + "VALUES (\"" +con. supplierId+"\",\"" +
+                    con.firstName +"\",\"" + con.lastName + con.phoneNumber +"\",\"" + con.email   +"\")");
+            output = "Add supplier succeeded";
+        } catch (SQLException e) {
+            output = "Add supplier failed because: " ;
+        }
+        return output;
+    }
+
+    //not god!!!!!!!!!!!!!!!!!!!!!!
+    private String updateContact(String supplierId ,String filed ,String newVal){
+
+        String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(2, supplierId);
+
+            pstmt.setString(1, newVal);
+
+
+            pstmt.executeUpdate();
+            return "succeed";
+        } catch (SQLException e) {
+            return "failed";
+        }
+
+    }
+
+
+
+
+    public List<Contact> select_All_Contact_of_supplier(String supplierId) {
+        String sql = "SELECT * FROM Contact WHERE supplierId=" +supplierId  ;
+
+
+        List<Contact> newOrder = new ArrayList<Contact>();
+
+
+        try (Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+
+                Contact tmpC = new Contact();
+                tmpC.supplierId = rs.getString("supplierId");
+                tmpC.firstName = rs.getString("firstName");
+                tmpC.lastName = rs.getString("lastName");
+                tmpC.phoneNumber = rs.getString("phoneNumber");
+                tmpC.email = rs.getString("email");
+
+                newOrder.add(tmpC);
+
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select Order");
+
+        }
+        return newOrder;
+    }
+
+
+
+    ////////////**********************************
+
+
 
 
 

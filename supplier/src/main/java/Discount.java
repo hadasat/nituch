@@ -7,5 +7,14 @@ public class Discount {
     Integer quanttity;
     Integer discount;
 
+    Discount(){
+
+    }
+
+    Discount(String catalogId, Integer quanttity, Integer discount){
+        this.catalogId=catalogId;
+        this.quanttity=quanttity;
+        this.discount=discount;
+    }
 
 }

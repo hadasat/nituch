@@ -7,4 +7,20 @@ public class Contact {
     String lastName;
     String phoneNumber;
     String email;
+
+
+    Contact(){
+
+    }
+
+    Contact(String supplierId, String firstName, String lastName, String phoneNumber, String email){
+        this.supplierId=supplierId;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+
+    }
+
+
 }
