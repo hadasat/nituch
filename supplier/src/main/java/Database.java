@@ -133,6 +133,76 @@ public class Database {
     //*********************************end item::
 
 
+    ////////////////////////////order:
+
+    public String add_order(Order order) {
+        String output = "";
+
+        try (Statement stmt  = conn.createStatement()){
+            // loop through the result set
+            stmt.executeUpdate("INSERT INTO Order " + "VALUES (\"" +order.item+"\",\"" +
+                    order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +")");
+            output = "Add order succeeded";
+        } catch (SQLException e) {
+            output = "Add order failed  ";
+        }
+        return output;
+    }
+
+
+
+    private String updateOrder(String item ,String filed, String value){
+
+        String sql = "UPDATE Order SET " +filed+ "= ?  where item = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(2, item);
+            if(filed =="quanttity") {
+                pstmt.setString(1, value);
+            }
+            else if(filed =="orderDate"||filed =="arrivalDate") {
+                pstmt.setDate(1, Date.valueOf(value));
+            }
+            else if(filed =="recived" ){
+                pstmt.setBoolean(1, Boolean.valueOf(value));
+            }
+
+            pstmt.executeUpdate();
+            return "succeed";
+        } catch (SQLException e) {
+            return "failed";
+        }
+
+    }
+
+    public Order select_Order(String item ) {
+        String sql = "SELECT * FROM Oredr WHERE item=" +item  ;
+        Order newOrder = new Order();
+        try (Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                newOrder.item = rs.getString("item");
+                newOrder.quanttity = rs.getString("quanttity");
+                newOrder.arrivalDate = rs.getDate("arrivalDate");
+                newOrder.orderDate = rs.getDate("orderDate");
+                newOrder.recived=rs.getBoolean("recived");
+
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select Order");
+
+        }
+        return newOrder;
+    }
+
+
+
+
+    ///////************************************
+
+
 
 }
 
