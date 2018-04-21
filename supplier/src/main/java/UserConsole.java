@@ -12,7 +12,7 @@ public class UserConsole {
     private static Database databaseConn;
 
     public static void main(String[] args){
-
+        databaseConn = new Database();
         System.out.println("please select an action by choosing the index: \n" +
                 "1.add new supplier \n" +
                 "2.add new contact for supplier \n" +
