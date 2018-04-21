@@ -18,7 +18,7 @@ public class Database {
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Supplier " + "VALUES (\"" +supplier.supplierId +"\",\"" +
-                    supplier.bankAccount +"\",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ ")");
+                    supplier.bankAccount +"\",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\")");
             output = "Add supplier succeeded";
         } catch (SQLException e) {
             output = "Add supplier failed because: " ;
@@ -77,7 +77,7 @@ public class Database {
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Item " + "VALUES (\"" +item.catalogId+"\",\"" +
-                    item.supplierId +"\",\"" + item.price  +")");
+                    item.supplierId +"\"," + item.price  +")");
             output = "Add item succeeded";
         } catch (SQLException e) {
             output = "Add item failed  ";
@@ -143,7 +143,7 @@ public class Database {
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Oredrs " + "VALUES (\"" +order.supplierId+"\",\"" + order.orderId +"\",\""+
-                    order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +")");
+                    order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +"\")");
             output = "Add order succeeded";
         } catch (SQLException e) {
             output = "Add order failed  ";
@@ -225,7 +225,7 @@ public class Database {
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Discount " + "VALUES (\"" +discount.catalogId +"\"," +
-                    discount.quanttity +"," + discount.discount  );
+                    discount.quanttity +"," + discount.discount +")" );
             output = "Add supplier succeeded";
         } catch (SQLException e) {
             output = "Add supplier failed because: " ;
