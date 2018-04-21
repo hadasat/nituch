@@ -4,18 +4,18 @@
 
 public class Supplier {
 
-    String supplierId;
+    int supplierId;
     int bankAccount;
     String payment;
     String supplyForm;
 
     Supplier(){}
 
-    Supplier(String supplierId,	int bankAccount,String payment,String supplyForm){
+    Supplier(int supplierId,	int bankAccount,String payment,String supplyForm){
         this.supplierId = supplierId;
         this.bankAccount = bankAccount;
         this.payment = payment;
-        this.supplyForm=supplierId;
+        this.supplyForm=supplyForm;
     }
 
 

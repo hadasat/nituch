@@ -41,11 +41,11 @@ public class Database {
     }
 
 
-    private String updateSupplier(String supplierId ,String filed, String value){
+    private String updateSupplier(int supplierId ,String filed, String value){
 
         String sql = "UPDATE Supplier SET " +filed+ "= ?  where supplierId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(2, supplierId);
+            pstmt.setInt(2, supplierId);
         if(value =="bankAccount") {
             pstmt.setInt(1, Integer.parseInt(value));
         }
@@ -60,7 +60,7 @@ public class Database {
 
     }
 
-    public Supplier select_supplier(String supplierId) {
+    public Supplier select_supplier(int supplierId) {
         String sql = "SELECT * FROM Supplier WHERE supplierId \"" + supplierId + "\"";
         Supplier s = new Supplier();
         try (Statement stmt  = conn.createStatement();
@@ -69,7 +69,7 @@ public class Database {
             // loop through the result set
             while (rs.next()) {
 
-                s.supplierId = rs.getString("supplierId");
+                s.supplierId = rs.getInt("supplierId");
                 s.supplyForm = rs.getString("supplyForm");
                 s.payment =  rs.getString("payment");
                 s.bankAccount = rs.getInt("bankAccount");
@@ -91,8 +91,8 @@ public class Database {
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Item  VALUES (\"" +item.catalogId+"\",\"" +
-                    item.supplierId +"\",\"" + item.price  +")");
+            stmt.executeUpdate("INSERT INTO Item  VALUES ( "+item.catalogId+"," +
+                    item.supplierId +"," + item.price  +",\"" + item.manufacturer +  "\");");
             output = "Add item succeeded";
         } catch (SQLException e) {
             output = "Add item failed";
@@ -101,14 +101,15 @@ public class Database {
     }
 
 
-    private String updateItem(String supplierId ,String CatalogId, String new_price_value){
+    private String updateItem(int supplierId ,int CatalogId, int new_price_value){
 
         String sql = "UPDATE Item SET price= ?  where supplierId = ? AND CatalogId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, Integer.parseInt(new_price_value));
-            pstmt.setString(2, supplierId);
-            pstmt.setString(3, CatalogId);
+            pstmt.setInt(1, new_price_value);
+            pstmt.setInt(2, supplierId);
+            pstmt.setInt(3, CatalogId);
+           // pstmt.setString(3, m);
 
             pstmt.executeUpdate();
             return "updateItem succeed";
@@ -120,7 +121,7 @@ public class Database {
 
 
 
-    public List<Item> select_Item(String supplierId, String catalogId ) {
+    public List<Item> select_Item(int supplierId, int catalogId ) {
         String sql = "SELECT * FROM Item WHERE catalogId=" +catalogId+ " AND supplierId =" + supplierId;
 
         List<Item> output = new LinkedList<>();
@@ -130,9 +131,10 @@ public class Database {
             // loop through the result set
             while (rs.next()) {
                 Item newItem = new Item();
-                newItem.supplierId = rs.getString("supplierId");
-                newItem.catalogId = rs.getString("catalogId");
+                newItem.supplierId = rs.getInt("supplierId");
+                newItem.catalogId = rs.getInt("catalogId");
                 newItem.price =  rs.getInt("price");
+                newItem.manufacturer =  rs.getString("manufacturer");
                 output.add(newItem);
             }
         } catch (SQLException e) {
@@ -151,46 +153,45 @@ public class Database {
 
     ////////////////////////////order:
 
-    public String add_order(Order order) {
+    public void add_order(Order order) {
         String output = "";
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Oredrs VALUES (\"" +order.supplierId+"\",\"" + order.orderId +"\",\""+
-                    order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +")");
+            stmt.executeUpdate("INSERT INTO Oredrs VALUES (" +order.supplierId+"," + order.orderId +","+
+                    order.quanttity +"," + order.orderDate  +"," +order.recived  +"," +order.arrivalDate +")");
             output = "Add order succeeded";
         } catch (SQLException e) {
             output = "Add order failed  ";
         }
-        return output;
+        System.out.println(output);
     }
 
 
 
-    private String updateOrder(String item ,String filed, String value){
+    private void updateOrder(int catalogId ,String filed, String value){
 
-        String sql = "UPDATE Oredrs SET " +filed+ "= ?  where item = ?";
+        String sql = "UPDATE Oredrs SET " +filed+ "= ?  where catalogId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(2, item);
-            if(filed =="quanttity") {
-                pstmt.setString(1, value);
+            pstmt.setInt(2, catalogId);
+            if(filed =="quanttity"||filed =="recived" ) {
+                pstmt.setInt(1,  Integer.parseInt(value));
             }
             else if(filed =="orderDate"||filed =="arrivalDate") {
                 pstmt.setDate(1, Date.valueOf(value));
             }
-            else if(filed =="recived" ){
-                pstmt.setInt(1, Integer.parseInt(value));
-            }
 
             pstmt.executeUpdate();
-            return "succeed";
+
+            System.out.println("succeed");
         } catch (SQLException e) {
-            return "failed";
+
+            System.out.println( "failed");
         }
 
     }
 
-    public List<Order> select_Order(String supplierId) {
+    public List<Order> select_Order(int supplierId) {
         String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId  ;
 
 
@@ -204,9 +205,9 @@ public class Database {
             while (rs.next()) {
 
                 Order tmpO = new Order();
-                tmpO.supplierId = rs.getString("supplierId");
-                tmpO.orderId = rs.getString("orderId");
-                tmpO.quanttity = rs.getString("quanttity");
+                tmpO.supplierId = rs.getInt("supplierId");
+                tmpO.orderId = rs.getInt("orderId");
+                tmpO.quanttity = rs.getInt("quanttity");
                 tmpO.arrivalDate = rs.getDate("arrivalDate");
                 tmpO.orderDate = rs.getDate("orderDate");
                 tmpO.recived=rs.getInt("recived");
@@ -233,37 +234,37 @@ public class Database {
 
 
 
-    public String add_Discount(Discount discount) {
+    public void add_Discount(Discount discount) {
         String output = "";
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Discount " + "VALUES (\"" +discount.catalogId +"\"," +
+            stmt.executeUpdate("INSERT INTO Discount " + "VALUES (" +discount.catalogId +"," +
                     discount.quanttity +"," + discount.discount  );
             output = "Add supplier succeeded";
         } catch (SQLException e) {
             output = "Add supplier failed because: " ;
         }
-        return output;
+        System.out.println(output);
     }
 
-    private String updateDiscount(String catalogId ,String quanttity ,String newDiscount){
+    private void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, Integer.parseInt(newDiscount));
-            pstmt.setString(2, catalogId);
-            pstmt.setInt(3, Integer.parseInt(quanttity));
+            pstmt.setInt(1, newDiscount);
+            pstmt.setInt(2, catalogId);
+            pstmt.setInt(3, quanttity);
 
             pstmt.executeUpdate();
-            return "succeed";
+            System.out.println("succeed");
         } catch (SQLException e) {
-            return "failed";
+            System.out.println( "failed");
         }
 
     }
 
-    public Discount select_Discount(String catalogId, String quanttity) {
+    public Discount select_Discount(int catalogId, int quanttity) {
         String sql = "SELECT * FROM Discount WHERE catalogId=" +catalogId+ " AND quanttity =" + quanttity  ;
         Discount d = new Discount();
         try (Statement stmt  = conn.createStatement();
@@ -272,7 +273,7 @@ public class Database {
             // loop through the result set
             while (rs.next()) {
 
-                d.catalogId = rs.getString("catalogId");
+                d.catalogId = rs.getInt("catalogId");
                 d.quanttity = rs.getInt("quanttity");
                 d.discount = rs.getInt("discount");
             }
@@ -292,34 +293,34 @@ public class Database {
 
 
 
-    public String add_Contact(Contact con) {
+    public void add_Contact(Contact con) {
         String output = "";
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Contact " + "VALUES (\"" +con. supplierId+"\",\"" +
+            stmt.executeUpdate("INSERT INTO Contact " + "VALUES (" +con. supplierId+",\"" +
                     con.firstName +"\",\"" + con.lastName + con.phoneNumber +"\",\"" + con.email   +"\")");
             output = "Add supplier succeeded";
         } catch (SQLException e) {
             output = "Add supplier failed because: " ;
         }
-        return output;
+        System.out.println(output);
     }
 
     //not god!!!!!!!!!!!!!!!!!!!!!!
-    private String updateContact(String supplierId ,String filed ,String newVal){
+    private void updateContact(int supplierId ,String filed ,String newVal){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(2, supplierId);
+            pstmt.setInt(2, supplierId);
 
             pstmt.setString(1, newVal);
 
 
             pstmt.executeUpdate();
-            return "succeed";
+            System.out.println("succeed");
         } catch (SQLException e) {
-            return "failed";
+            System.out.println( "failed");
         }
 
     }
@@ -327,7 +328,7 @@ public class Database {
 
 
 
-    public List<Contact> select_All_Contact_of_supplier(String supplierId) {
+    public List<Contact> select_All_Contact_of_supplier(int supplierId) {
         String sql = "SELECT * FROM Contact WHERE supplierId=" +supplierId  ;
 
 
@@ -341,7 +342,7 @@ public class Database {
             while (rs.next()) {
 
                 Contact tmpC = new Contact();
-                tmpC.supplierId = rs.getString("supplierId");
+                tmpC.supplierId = rs.getInt("supplierId");
                 tmpC.firstName = rs.getString("firstName");
                 tmpC.lastName = rs.getString("lastName");
                 tmpC.phoneNumber = rs.getString("phoneNumber");

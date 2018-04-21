@@ -3,15 +3,15 @@
  */
 public class Discount {
 
-    String catalogId;
-    Integer quanttity;
-    Integer discount;
+    int catalogId;
+    int quanttity;
+    int discount;
 
     Discount(){
 
     }
 
-    Discount(String catalogId, Integer quanttity, Integer discount){
+    Discount(int catalogId, int quanttity, int discount){
         this.catalogId=catalogId;
         this.quanttity=quanttity;
         this.discount=discount;
