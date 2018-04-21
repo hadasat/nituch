@@ -6,10 +6,10 @@ import java.sql.Date;
 ///
 public class Order {
 
-        String supplierId;
-        String orderId;
-        String catalogId;
-        String quanttity;
+        int supplierId;
+        int orderId;
+        int catalogId;
+        int quanttity;
         Date orderDate;
         int recived;
         Date arrivalDate;
@@ -17,7 +17,7 @@ public class Order {
 
         Order(){}
 
-        Order( String supplierId,String orderId,String catalogId,String quanttity , Date orderDate,int recived, Date arrivalDate){
+        Order( int supplierId,int orderId,int catalogId,int quanttity , Date orderDate,int recived, Date arrivalDate){
                 this.supplierId=supplierId;
                 this.orderId=orderId;
                 this.catalogId=catalogId;
