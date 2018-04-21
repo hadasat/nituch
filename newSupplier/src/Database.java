@@ -35,13 +35,13 @@ public class Database {
 
             System.out.println("Add supplier succeeded");
         } catch (SQLException e) {
-            System.out.println("Add supplier failed because: " +e);
+            System.out.println("Add supplier failed" +e);
         }
         return output;
     }
 
 
-    private String updateSupplier(int supplierId ,String filed, String value){
+    public String updateSupplier(int supplierId ,String filed, String value){
 
         String sql = "UPDATE Supplier SET " +filed+ "= ?  where supplierId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -101,7 +101,7 @@ public class Database {
     }
 
 
-    private String updateItem(int supplierId ,int CatalogId, int new_price_value){
+    public String updateItem(int supplierId ,int CatalogId, int new_price_value){
 
         String sql = "UPDATE Item SET price= ?  where supplierId = ? AND CatalogId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -169,7 +169,7 @@ public class Database {
 
 
 
-    private void updateOrder(int catalogId ,String filed, String value){
+    public void updateOrder(int catalogId ,String filed, String value){
 
         String sql = "UPDATE Oredrs SET " +filed+ "= ?  where catalogId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -243,12 +243,12 @@ public class Database {
                     discount.quanttity +"," + discount.discount  );
             output = "Add supplier succeeded";
         } catch (SQLException e) {
-            output = "Add supplier failed because: " ;
+            output = "Add supplier failed" ;
         }
         System.out.println(output);
     }
 
-    private void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
+    public void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -302,13 +302,13 @@ public class Database {
                     con.firstName +"\",\"" + con.lastName + con.phoneNumber +"\",\"" + con.email   +"\")");
             output = "Add supplier succeeded";
         } catch (SQLException e) {
-            output = "Add supplier failed because: " ;
+            output = "Add supplier failed" ;
         }
         System.out.println(output);
     }
 
     //not god!!!!!!!!!!!!!!!!!!!!!!
-    private void updateContact(int supplierId ,String filed ,String newVal){
+    public void updateContact(int supplierId ,String filed ,String newVal){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
