@@ -11,7 +11,7 @@ public class Database {
 
     Database()
     {
-        String url = "jdbc:sqlite: Suppliers.db";
+        String url = "jdbc:sqlite:Suppliers.db";
         try {
             this.conn = DriverManager.getConnection(url);
         } catch (Exception var3) {
@@ -26,15 +26,20 @@ public class Database {
         String output = "";
 
         try (Statement stmt  = conn.createStatement()){
+            System.out.println("INSERT INTO Supplier VALUES (" +supplier.supplierId +"," +
+                    supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\")");
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Supplier VALUES (\"" +supplier.supplierId +"\"," +
-                    supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ ")\"");
+            stmt.executeUpdate("INSERT INTO Supplier VALUES (" +supplier.supplierId +"," +
+                    supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\");");
+            // stmt.executeUpdate("INSERT INTO Supplier VALUES (123,123,'124','123')");
+
             System.out.println("Add supplier succeeded");
         } catch (SQLException e) {
-            System.out.println("Add supplier failed because: " );
+            System.out.println("Add supplier failed because: " +e);
         }
         return output;
     }
+
 
     private String updateSupplier(String supplierId ,String filed, String value){
 

@@ -22,16 +22,16 @@ public class UserConsole {
         chooseAcction(s);
     }
     private static void addNewSupplier(){
-        System.out.println("please enter supplierId\n");
+        System.out.println("please enter supplierId");
         String supplierId = in.nextLine();
-        System.out.println("please enter bankAccount\n");
-        int bankAccount = in.nextInt();
-        System.out.println("please enter payment \n");
+        System.out.println("please enter bankAccount");
+        String bankAccount = in.nextLine();
+        System.out.println("please enter payment");
         String payment = in.nextLine();
-        System.out.println("please enter supplyForm \n");
+        System.out.println("please enter supplyForm");
         String supplyForm = in.nextLine();
 
-        Supplier supplier = new Supplier(supplierId,bankAccount,payment,supplyForm);
+        Supplier supplier = new Supplier(supplierId,Integer.parseInt(bankAccount),payment,supplyForm);
         databaseConn.add_Supplier(supplier);
 
     }
