@@ -55,7 +55,6 @@ public class UserConsole {
             }
             s = in.nextLine();
         }
-        chooseAcction(s);
     }
 
     private static void addNewSupplier() {
