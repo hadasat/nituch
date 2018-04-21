@@ -12,7 +12,7 @@ public class UserConsole {
     private static Database databaseConn;
 
     public static void main(String[] args){
-
+        databaseConn = new Database();
         System.out.println("please select an action by choosing the index: \n" +
                 "1.add new supplier \n" +
                 "2.add new contact for supplier \n" +
@@ -53,37 +53,36 @@ public class UserConsole {
         //databaseConn.addCintact(newContact);
     }
 
+    /*
+        public List<Order> select_Last_Order(String supplierId) {
+            List<Order> newOrder = new ArrayList<Order>();
+            newOrder = databaseConn.select_Order(supplierId);
+            Date maxDate = newOrder.stream().map(u -> u.orderDate).max(Date::compareTo).get();
+            List<Order> anser = new ArrayList<Order>();
+            for (Order o: newOrder
+                    ) {
+                if(o.orderDate.equals(maxDate)){
+                    anser.add(o);
+                }
 
-    public List<Order> select_Last_Order(String supplierId) {
-        List<Order> newOrder = new ArrayList<Order>();
-        newOrder = databaseConn.select_Order(supplierId);
-        Date maxDate = newOrder.stream().map(u -> u.orderDate).max(Date::compareTo).get();
-        List<Order> anser = new ArrayList<Order>();
-        for (Order o: newOrder
-                ) {
-            if(o.orderDate.equals(maxDate)){
-                anser.add(o);
             }
 
+            return  anser;
         }
-
-        return  anser;
-    }
-    private  void showDiscounts(){
-
-    }
+        }
+        */
     private void chooseAcction(String action){
         switch (action){
             case ("1"):
                 addNewSupplier();
-             break;
+                break;
 
             case ("2"):
                 addNewContact();
                 break;
 
             case ("3"):
-                showDiscounts();
+                //showDiscounts();
                 break;
 
             case ("4"):

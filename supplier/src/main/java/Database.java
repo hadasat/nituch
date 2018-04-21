@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -8,9 +9,18 @@ import java.util.List;
 public class Database {
     Connection conn = null ;
 
-    Database(Connection conn){
-        this.conn = conn;
+    Database()
+    {
+        String url = "jdbc:sqlite: Suppliers.db";
+        try {
+            this.conn = DriverManager.getConnection(url);
+        } catch (Exception var3) {
+            System.out.println(var3);
+            System.out.println("not");
+        }
+
     }
+
 
     public String add_Supplier(Supplier supplier) {
         String output = "";
@@ -18,7 +28,7 @@ public class Database {
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Supplier " + "VALUES (\"" +supplier.supplierId +"\",\"" +
-                    supplier.bankAccount +"\",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\")");
+                    supplier.bankAccount +"\",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ ")");
             output = "Add supplier succeeded";
         } catch (SQLException e) {
             output = "Add supplier failed because: " ;
@@ -76,11 +86,11 @@ public class Database {
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Item " + "VALUES (\"" +item.catalogId+"\",\"" +
-                    item.supplierId +"\"," + item.price  +")");
+            stmt.executeUpdate("INSERT INTO Item  VALUES (\"" +item.catalogId+"\",\"" +
+                    item.supplierId +"\",\"" + item.price  +")");
             output = "Add item succeeded";
         } catch (SQLException e) {
-            output = "Add item failed  ";
+            output = "Add item failed";
         }
         return output;
     }
@@ -88,9 +98,8 @@ public class Database {
 
     private String updateItem(String supplierId ,String CatalogId, String new_price_value){
 
-        String sql = "UPDATE Item SET " +"price"+ "= ?  where supplierId = ? AND CatalogId = ?";
+        String sql = "UPDATE Item SET price= ?  where supplierId = ? AND CatalogId = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
 
             pstmt.setInt(1, Integer.parseInt(new_price_value));
             pstmt.setString(2, supplierId);
@@ -106,26 +115,26 @@ public class Database {
 
 
 
-    public Item select_Item(String supplierId,String catalogId ) {
-        String sql = "SELECT * FROM Item WHERE catalogId=" +catalogId+ " AND supplierId =" + supplierId  ;
-        Item newItem = new Item();
+    public List<Item> select_Item(String supplierId,String catalogId ) {
+        String sql = "SELECT * FROM Item WHERE catalogId=" +catalogId+ " AND supplierId =" + supplierId;
+
+        List<Item> output = new LinkedList<>();
         try (Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
             while (rs.next()) {
-
+                Item newItem = new Item();
                 newItem.supplierId = rs.getString("supplierId");
                 newItem.catalogId = rs.getString("catalogId");
                 newItem.price =  rs.getInt("price");
-
+                output.add(newItem);
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
             System.out.println("faild select Item");
-
         }
-        return newItem;
+        return output;
     }
 
 
@@ -142,8 +151,8 @@ public class Database {
 
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Oredrs " + "VALUES (\"" +order.supplierId+"\",\"" + order.orderId +"\",\""+
-                    order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +"\")");
+            stmt.executeUpdate("INSERT INTO Oredrs VALUES (\"" +order.supplierId+"\",\"" + order.orderId +"\",\""+
+                    order.quanttity +"\",\"" + order.orderDate  +"\",\"" +order.recived  +"\",\"" +order.arrivalDate +")");
             output = "Add order succeeded";
         } catch (SQLException e) {
             output = "Add order failed  ";
@@ -225,7 +234,7 @@ public class Database {
         try (Statement stmt  = conn.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Discount " + "VALUES (\"" +discount.catalogId +"\"," +
-                    discount.quanttity +"," + discount.discount +")" );
+                    discount.quanttity +"," + discount.discount  );
             output = "Add supplier succeeded";
         } catch (SQLException e) {
             output = "Add supplier failed because: " ;
