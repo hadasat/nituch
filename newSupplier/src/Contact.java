@@ -8,7 +8,6 @@ public class Contact {
     String phoneNumber;
     String email;
 
-<<<<<<< HEAD
 
     Contact(){
 
@@ -24,15 +23,4 @@ public class Contact {
     }
 
 
-=======
-    Contact(String supplierId, String firstName, String lastName, String phoneNumber,String email){
-        this.supplierId = supplierId;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
-
->>>>>>> fd66b8f8425810fe97a4d511b5ed085706c00ca1
 }
