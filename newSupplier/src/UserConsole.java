@@ -103,7 +103,7 @@ public class UserConsole {
             System.out.println("please enter payment form between 1-3");
             supplyFormIn = in.nextLine();
         }
-        String supplyForm;
+        String supplyForm = "";
         if (supplyFormIn.equals("2")) {
             System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
             String daysIndex = in.nextLine();
@@ -126,7 +126,7 @@ public class UserConsole {
                     try {
                         int ind = Integer.parseInt(index);
                         if (ind <= 6 && ind >= 1) {
-                            supplyForm += week[ind - 1];
+                            supplyForm += week[ind - 1] + " ";
                         }
                     } catch (NumberFormatException e) {
                     }
