@@ -224,6 +224,39 @@ public class Database {
 
 
 
+    public List<Order> select_Not_Recived_Orders(int supplierId) {
+        String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId +"AND recived = 0"  ;
+
+
+        List<Order> newOrder = new ArrayList<Order>();
+
+
+        try (Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+
+                Order tmpO = new Order();
+                tmpO.supplierId = rs.getInt("supplierId");
+                tmpO.orderId = rs.getInt("orderId");
+                tmpO.quanttity = rs.getInt("quanttity");
+                tmpO.arrivalDate = rs.getDate("arrivalDate");
+                tmpO.orderDate = rs.getDate("orderDate");
+                tmpO.recived=rs.getInt("recived");
+                newOrder.add(tmpO);
+
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select Order");
+
+        }
+        return newOrder;
+    }
+
+
+
 
 
     ///////************************************
