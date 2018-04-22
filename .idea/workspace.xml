@@ -16,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="UserConsole.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserConsole.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11160">
-              <caret line="180" column="41" lean-forward="false" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
+            <state relative-caret-position="-8560">
+              <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-720">
-              <caret line="231" column="39" lean-forward="false" selection-start-line="231" selection-start-column="39" selection-end-line="231" selection-end-column="39" />
+            <state relative-caret-position="9520">
+              <caret line="268" column="42" lean-forward="false" selection-start-line="268" selection-start-column="42" selection-end-line="268" selection-end-column="42" />
               <folding>
                 <marker date="1524427307065" expanded="true" signature="898:1061" ph="INSERT INTO Supplier... " />
                 <marker date="1524427307065" expanded="true" signature="1446:1502" ph="UPDATE Suppl... " />
@@ -211,8 +211,8 @@
         <option value="$PROJECT_DIR$/newSupplier/src/Contact.java" />
         <option value="$PROJECT_DIR$/newSupplier/src/Supplier.java" />
         <option value="$PROJECT_DIR$/newSupplier/src/Order.java" />
-        <option value="$PROJECT_DIR$/newSupplier/src/UserConsole.java" />
         <option value="$PROJECT_DIR$/newSupplier/src/Database.java" />
+        <option value="$PROJECT_DIR$/newSupplier/src/UserConsole.java" />
       </list>
     </option>
   </component>
@@ -704,12 +704,12 @@
       <workItem from="1524343798822" duration="967000" />
       <workItem from="1524344801002" duration="12650000" />
       <workItem from="1524390792720" duration="3858000" />
-      <workItem from="1524424150604" duration="3146000" />
+      <workItem from="1524424150604" duration="5076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20621000" />
+    <option name="totallyTimeSpent" value="22551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="0" width="3857" height="2092" extended-state="0" />
@@ -1224,20 +1224,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11160">
-          <caret line="180" column="41" lean-forward="false" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret line="231" column="39" lean-forward="false" selection-start-line="231" selection-start-column="39" selection-end-line="231" selection-end-column="39" />
+        <state relative-caret-position="9520">
+          <caret line="268" column="42" lean-forward="false" selection-start-line="268" selection-start-column="42" selection-end-line="268" selection-end-column="42" />
           <folding>
             <marker date="1524427307065" expanded="true" signature="898:1061" ph="INSERT INTO Supplier... " />
             <marker date="1524427307065" expanded="true" signature="1446:1502" ph="UPDATE Suppl... " />
@@ -1260,6 +1250,16 @@
             <marker date="1524427307065" expanded="true" signature="12807:12988" ph="INSERT INTO Contact... " />
             <marker date="1524427307065" expanded="true" signature="13457:13527" ph="UPDATE Disco... " />
             <marker date="1524427307065" expanded="true" signature="13963:14002" ph="SELECT * FRO... Contact" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8560">
+          <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

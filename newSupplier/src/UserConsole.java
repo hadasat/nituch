@@ -26,8 +26,7 @@ public class UserConsole {
 
                 "8.show all not-recived orders\n" +
                 "9.print all suppliers\n" +
-                "10.print all items\n" +
-                "11.Add new Order"
+                "10.print all items"
 
 
         );
@@ -64,8 +63,7 @@ public class UserConsole {
 
                             "8.show all not-recived orders\n" +
                             "9.print all suppliers\n" +
-                            "10.print all items\n" +
-                            "11.Add new Order"
+                            "10.print all items"
 
 
                     );
@@ -79,9 +77,7 @@ public class UserConsole {
                 case ("10"):
                     showALL_items();
                     break;
-                case ("11"):
-                    add_order();
-                    break;
+
                 default:
                     System.out.println("please enter a valid command");
             }
