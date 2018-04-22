@@ -48,7 +48,7 @@ public class UserConsole {
                             "4.order report by supplier\n" +
                             "5.change supplier detailes\n" +
                             "6.add new discount\n" +
-                            "7.print the menu again\n");
+                            "7.print the menu again");
                     break;
                 default:
                     System.out.println("please enter a valid command");
@@ -102,7 +102,7 @@ public class UserConsole {
                 supplyFormIn = in.nextLine();
             }
             if(supplyFormIn == "2"){
-                System.out.println("please enter the days of delivery : 1.Monday, 2.t");
+                System.out.println("please enter the days of delivery and space between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
             }
             String supplyFormOptions [] = {"Independent","Regular days","personal invitation"};
             String supplyForm = supplyFormOptions[Integer.parseInt(supplyFormIn)-1];
@@ -124,7 +124,6 @@ public class UserConsole {
                 System.out.println("not A NUMBER!! try again");
             }
         }
-
         System.out.println("please enter first Name");
         String firstName = in.nextLine();
         System.out.println("please enter last Name");

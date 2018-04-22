@@ -7,13 +7,13 @@ import java.util.List;
  * Created by מחשב on 17/04/2018.
  */
 public class Database {
-    Connection conn = null ;
+    Connection connection = null ;
 
     Database()
     {
         String url = "jdbc:sqlite:Suppliers.db";
         try {
-            this.conn = DriverManager.getConnection(url);
+            this.connection = DriverManager.getConnection(url);
         } catch (Exception var3) {
             System.out.println(var3);
             System.out.println("not");
@@ -25,7 +25,7 @@ public class Database {
     public String add_Supplier(Supplier supplier) {
         String output = "";
 
-        try (Statement stmt  = conn.createStatement()){
+        try (Statement stmt  = connection.createStatement()){
             System.out.println("INSERT INTO Supplier VALUES (" +supplier.supplierId +"," +
                     supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\")");
             // loop through the result set
@@ -44,7 +44,7 @@ public class Database {
     public String updateSupplier(int supplierId ,String filed, String value){
 
         String sql = "UPDATE Supplier SET " +filed+ "= ?  where supplierId = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, supplierId);
         if(value =="bankAccount") {
             pstmt.setInt(1, Integer.parseInt(value));
@@ -63,7 +63,7 @@ public class Database {
     public Supplier select_supplier(int supplierId) {
         String sql = "SELECT * FROM Supplier WHERE supplierId \"" + supplierId + "\"";
         Supplier s = new Supplier();
-        try (Statement stmt  = conn.createStatement();
+        try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
@@ -89,7 +89,7 @@ public class Database {
     public String add_item(Item item) {
         String output = "";
 
-        try (Statement stmt  = conn.createStatement()){
+        try (Statement stmt  = connection.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Item  VALUES ( "+item.catalogId+"," +
                     item.supplierId +"," + item.price  +",\"" + item.manufacturer +  "\");");
@@ -104,7 +104,7 @@ public class Database {
     public String updateItem(int supplierId ,int CatalogId, int new_price_value){
 
         String sql = "UPDATE Item SET price= ?  where supplierId = ? AND CatalogId = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
             pstmt.setInt(1, new_price_value);
             pstmt.setInt(2, supplierId);
@@ -125,7 +125,7 @@ public class Database {
         String sql = "SELECT * FROM Item WHERE catalogId=" +catalogId+ " AND supplierId =" + supplierId;
 
         List<Item> output = new LinkedList<>();
-        try (Statement stmt  = conn.createStatement();
+        try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
@@ -156,7 +156,7 @@ public class Database {
     public void add_order(Order order) {
         String output = "";
 
-        try (Statement stmt  = conn.createStatement()){
+        try (Statement stmt  = connection.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Oredrs VALUES (" +order.supplierId+"," + order.orderId +","+
                     order.quanttity +"," + order.orderDate  +"," +order.recived  +"," +order.arrivalDate +")");
@@ -172,7 +172,7 @@ public class Database {
     public void updateOrder(int catalogId ,String filed, String value){
 
         String sql = "UPDATE Oredrs SET " +filed+ "= ?  where catalogId = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, catalogId);
             if(filed =="quanttity"||filed =="recived" ) {
                 pstmt.setInt(1,  Integer.parseInt(value));
@@ -198,7 +198,7 @@ public class Database {
         List<Order> newOrder = new ArrayList<Order>();
 
 
-        try (Statement stmt  = conn.createStatement();
+        try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
@@ -231,7 +231,7 @@ public class Database {
         List<Order> newOrder = new ArrayList<Order>();
 
 
-        try (Statement stmt  = conn.createStatement();
+        try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
@@ -270,7 +270,7 @@ public class Database {
     public void add_Discount(Discount discount) {
         String output = "";
 
-        try (Statement stmt  = conn.createStatement()){
+        try (Statement stmt  = connection.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Discount " + "VALUES (" +discount.catalogId +"," +
                     discount.quanttity +"," + discount.discount  );
@@ -284,7 +284,7 @@ public class Database {
     public void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, newDiscount);
             pstmt.setInt(2, catalogId);
             pstmt.setInt(3, quanttity);
@@ -300,7 +300,7 @@ public class Database {
     public Discount select_Discount(int catalogId, int quanttity) {
         String sql = "SELECT * FROM Discount WHERE catalogId=" +catalogId+ " AND quanttity =" + quanttity  ;
         Discount d = new Discount();
-        try (Statement stmt  = conn.createStatement();
+        try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
@@ -329,7 +329,7 @@ public class Database {
     public void add_Contact(Contact con) {
         String output = "";
 
-        try (Statement stmt  = conn.createStatement()){
+        try (Statement stmt  = connection.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Contact " + "VALUES (" +con. supplierId+",\"" +
                     con.firstName +"\",\"" + con.lastName + con.phoneNumber +"\",\"" + con.email   +"\")");
@@ -344,7 +344,7 @@ public class Database {
     public void updateContact(int supplierId ,String filed ,String newVal){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, supplierId);
 
             pstmt.setString(1, newVal);
@@ -368,7 +368,7 @@ public class Database {
         List<Contact> newOrder = new ArrayList<Contact>();
 
 
-        try (Statement stmt  = conn.createStatement();
+        try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
