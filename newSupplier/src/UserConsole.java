@@ -87,9 +87,11 @@ public class UserConsole {
 
             System.out.println("please choose payment form payment: 1.check, 2.cash, 3.Payments");
             String paymentIndex = in.nextLine();
-            while (!(paymentIndex != "1" || paymentIndex != "2" || paymentIndex != "3")) {
+
+            while (!paymentIndex.equals("1")&&!paymentIndex.equals("2")&&!paymentIndex.equals("3")) {
                 System.out.println("please enter payment form between 1-3");
                 paymentIndex = in.nextLine();
+
             }
             String paymentForm[] = {"check", "cash", "Payments"};
             String payment = paymentForm[Integer.parseInt(paymentIndex) - 1];
