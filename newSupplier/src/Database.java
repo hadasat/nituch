@@ -329,13 +329,27 @@ public class Database {
     public void add_Contact(Contact con) {
         String output = "";
 
-        try (Statement stmt  = connection.createStatement()){
-            // loop through the result set
-            stmt.executeUpdate("INSERT INTO Contact " + "VALUES (" +con. supplierId+",\"" +
-                    con.firstName +"\",\"" + con.lastName + con.phoneNumber +"\",\"" + con.email   +"\")");
-            output = "Add supplier succeeded";
-        } catch (SQLException e) {
-            output = "Add supplier failed" ;
+        try {
+            Supplier s = select_supplier(con.supplierId);
+            output = s.payment;
+            if(output.equals("")){
+                output = "Add Contact failed no such supplier" ;
+
+            }else{
+                try (Statement stmt  = connection.createStatement()){
+                    // loop through the result set
+                    stmt.executeUpdate("INSERT INTO Contact " + "VALUES (" +con. supplierId+",\"" +
+                            con.firstName +"\",\"" + con.lastName +"\",\"" + con.phoneNumber +"\",\"" + con.email   +"\")");
+                    output = "Add Contact succeeded";
+                } catch (SQLException e) {
+                    output = "Add Contact failed"+e ;
+                }
+
+            }
+
+
+        }catch (Exception e){
+            output = "Add Contact failed no such supplier" ;
         }
         System.out.println(output);
     }

@@ -54,7 +54,7 @@ public class UserConsole {
                 default:
                     System.out.println("please enter a valid command");
             }
-            System.out.println("please enter q for quit, action number or ");
+            System.out.println("please enter q for quit, action number or 7 for menu: ");
             s = in.nextLine();
         }
     }
@@ -103,7 +103,7 @@ public class UserConsole {
             System.out.println("please enter payment form between 1-3");
             supplyFormIn = in.nextLine();
         }
-        String supplyForm;
+        String supplyForm="";
         if (supplyFormIn.equals("2")) {
             System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
             String daysIndex = in.nextLine();
