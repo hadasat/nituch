@@ -1,4 +1,6 @@
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -77,6 +79,9 @@ public class UserConsole {
                 case ("10"):
                     showALL_items();
                     break;
+                case ("11"):
+                    add_order();
+                    break;
                 default:
                     System.out.println("please enter a valid command");
             }
@@ -85,7 +90,7 @@ public class UserConsole {
         }
     }
 
-    private static void add_order(List<Supplier> l){
+    private static void add_order(){
 
         Order orderToAdd  =new Order();
         String supplierId = "";
@@ -148,61 +153,32 @@ public class UserConsole {
 
 
 
-            System.out.println("please choose payment form payment: 1.check, 2.cash, 3.Payments");
-            String paymentIndex = in.nextLine();
+            System.out.println("please enter orderDate in format dd/mm/yyyy");
+            orderDate = in.nextLine();
 
-            while (!paymentIndex.equals("1") && !paymentIndex.equals("2") && !paymentIndex.equals("3")) {
-                System.out.println("please enter payment form between 1-3");
-                paymentIndex = in.nextLine();
 
-            }
-            String paymentForm[] = {"check", "cash", "Payments"};
-            String payment = paymentForm[Integer.parseInt(paymentIndex) - 1];
+            while (true) {
+                System.out.println("please enter recived : if order recived enetr 1 else enter 0");
+                recived = in.nextLine();
+                if (recived.equals("1")||recived.equals("0")) {
 
-            System.out.println("please enter supplyForm : 1.Independent 2.Regular days 3.personal invitation");
-            String supplyFormIn = in.nextLine();
-            while (!paymentIndex.equals("1") && !paymentIndex.equals("2") && !paymentIndex.equals("3")) {
-                System.out.println("please enter payment form between 1-3");
-                supplyFormIn = in.nextLine();
-            }
-            String supplyForm="";
-            if (supplyFormIn.equals("2")) {
-                System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
-                String daysIndex = in.nextLine();
-                // remove spaces if there is
-                daysIndex.replaceAll("\\s+", "");
-                //split by days
-                String days[] = daysIndex.split(",");
-                //if the user did not enter properly ask him again
-                if (days.length == 1 && daysIndex.length() > 1) {
-                    System.out.println("you did not enter days in the right format,enter yes to skip , otherwise enter the days:");
-                    daysIndex = in.nextLine();
-                    daysIndex.replaceAll("\\s+", ""); // remove spaces if there is
-                    days = daysIndex.split(",");
+                    break;
+                } else {
+                    System.out.println("not  1 or 0!! try again");
                 }
-                //if the user want to enter days manually
-                if (!daysIndex.contains("yes")) {
-                    String week[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri"};
-                    supplyForm = "";
-                    for (String index : days) {
-                        try {
-                            int ind = Integer.parseInt(index);
-                            if (ind <= 6 && ind >= 1) {
-                                supplyForm += week[ind - 1];
-                            }
-                        } catch (NumberFormatException e) {
-                        }
-                    }
-                }
-                //check the supply form is not empty
-                if (supplyForm.length() == 0)
-                    supplyForm = "Regular days";
             }
-            Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
-            databaseConn.add_Supplier(supplier);
+
+
+            System.out.println("please enter arrivalDate in format dd/mm/yyyy yuo can leave this filed empty and press Enter");
+            arrivalDate = in.nextLine();
+
+
+
+            orderToAdd= new Order(Integer.parseInt(supplierId),Integer.parseInt(orderId),Integer.parseInt(catalogId),Integer.parseInt(quanttity),orderDate, Integer.parseInt(recived), arrivalDate);
+            databaseConn.add_order(orderToAdd);
 
         }catch (Exception e){
-
+            System.out.println("failed! ");
         }
 
     }

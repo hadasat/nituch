@@ -10,14 +10,14 @@ public class Order {
         int orderId;
         int catalogId;
         int quanttity;
-        Date orderDate;
+        String orderDate;
         int recived;
-        Date arrivalDate;
+        String arrivalDate;
 
 
         Order(){}
 
-        Order( int supplierId,int orderId,int catalogId,int quanttity , Date orderDate,int recived, Date arrivalDate){
+        Order( int supplierId,int orderId,int catalogId,int quanttity , String orderDate,int recived, String arrivalDate){
                 this.supplierId=supplierId;
                 this.orderId=orderId;
                 this.catalogId=catalogId;

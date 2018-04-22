@@ -35,7 +35,7 @@ public class Database {
 
             System.out.println("Add supplier succeeded");
         } catch (SQLException e) {
-            System.out.println("Add supplier failed" +e);
+            System.out.println("Add supplier failed" );
         }
         return output;
     }
@@ -61,7 +61,7 @@ public class Database {
     }
 
     public Supplier select_supplier(int supplierId) {
-        String sql = "SELECT * FROM Supplier WHERE supplierId \"" + supplierId + "\"";
+        String sql = "SELECT * FROM Supplier WHERE supplierId =" + supplierId ;
         Supplier s = new Supplier();
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
@@ -76,7 +76,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select supplier");
+            System.out.println("faild select supplier"+e);
 
         }
         return s;
@@ -209,6 +209,8 @@ public class Database {
         String output = "";
 
         try {
+
+
             Supplier s = select_supplier(order.supplierId);
             output = s.payment;
             if (output.equals("")) {
@@ -217,8 +219,8 @@ public class Database {
             } else {
                 try (Statement stmt = connection.createStatement()) {
                     // loop through the result set
-                    stmt.executeUpdate("INSERT INTO Oredrs VALUES (" + order.supplierId + "," + order.orderId + "," +
-                            order.quanttity + "," + order.orderDate + "," + order.recived + "," + order.arrivalDate + ")");
+                    stmt.executeUpdate("INSERT INTO Orders VALUES (" + order.supplierId + "," + order.orderId +","+order.catalogId+","+
+                            order.quanttity+",\"" + order.orderDate + "\"," + order.recived + ",\"" + order.arrivalDate + "\")");
                     output = "Add Order succeeded";
                 } catch (SQLException e) {
                     output = "Add Order failed" ;
@@ -241,7 +243,7 @@ public class Database {
                 pstmt.setInt(1,  Integer.parseInt(value));
             }
             else if(filed =="orderDate"||filed =="arrivalDate") {
-                pstmt.setDate(1, Date.valueOf(value));
+                pstmt.setString(1,value);
             }
 
             pstmt.executeUpdate();
@@ -271,8 +273,8 @@ public class Database {
                 tmpO.supplierId = rs.getInt("supplierId");
                 tmpO.orderId = rs.getInt("orderId");
                 tmpO.quanttity = rs.getInt("quanttity");
-                tmpO.arrivalDate = rs.getDate("arrivalDate");
-                tmpO.orderDate = rs.getDate("orderDate");
+                tmpO.arrivalDate = rs.getString("arrivalDate");
+                tmpO.orderDate = rs.getString("orderDate");
                 tmpO.recived=rs.getInt("recived");
                 newOrder.add(tmpO);
 
@@ -304,8 +306,8 @@ public class Database {
                 tmpO.supplierId = rs.getInt("supplierId");
                 tmpO.orderId = rs.getInt("orderId");
                 tmpO.quanttity = rs.getInt("quanttity");
-                tmpO.arrivalDate = rs.getDate("arrivalDate");
-                tmpO.orderDate = rs.getDate("orderDate");
+                tmpO.arrivalDate = rs.getString("arrivalDate");
+                tmpO.orderDate = rs.getString("orderDate");
                 tmpO.recived=rs.getInt("recived");
                 newOrder.add(tmpO);
 
