@@ -83,6 +83,32 @@ public class Database {
     }
 
 
+    public  List<Supplier> select_ALL_supplier() {
+        List<Supplier> s = new LinkedList<>();
+        String sql = "SELECT * FROM Supplier ";
+
+        try (Statement stmt  = connection.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                Supplier sT = new Supplier();
+
+                sT.supplierId = rs.getInt("supplierId");
+                sT.supplyForm = rs.getString("supplyForm");
+                sT.payment =  rs.getString("payment");
+                sT.bankAccount = rs.getInt("bankAccount");
+                s.add(sT);
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select supplier");
+
+        }
+        return s;
+    }
+
+
 
     ////////////////item:****************
 
@@ -145,6 +171,30 @@ public class Database {
     }
 
 
+    public List<Item> select_ALL_Item() {
+        String sql = "SELECT * FROM Item ";
+
+        List<Item> output = new LinkedList<>();
+        try (Statement stmt  = connection.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                Item newItem = new Item();
+                newItem.supplierId = rs.getInt("supplierId");
+                newItem.catalogId = rs.getInt("catalogId");
+                newItem.price =  rs.getInt("price");
+                newItem.manufacturer =  rs.getString("manufacturer");
+                output.add(newItem);
+            }
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            System.out.println("faild select Item");
+        }
+        return output;
+    }
+
+
 
 
 
@@ -154,20 +204,33 @@ public class Database {
     ////////////////////////////order:
 
     public void add_order(Order order) {
+
+
         String output = "";
 
-        try (Statement stmt  = connection.createStatement()){
-            // loop through the result set
-            stmt.executeUpdate("INSERT INTO Oredrs VALUES (" +order.supplierId+"," + order.orderId +","+
-                    order.quanttity +"," + order.orderDate  +"," +order.recived  +"," +order.arrivalDate +")");
-            output = "Add order succeeded";
-        } catch (SQLException e) {
-            output = "Add order failed  ";
+        try {
+            Supplier s = select_supplier(order.supplierId);
+            output = s.payment;
+            if (output.equals("")) {
+                output = "Add Order failed no such supplier";
+
+            } else {
+                try (Statement stmt = connection.createStatement()) {
+                    // loop through the result set
+                    stmt.executeUpdate("INSERT INTO Oredrs VALUES (" + order.supplierId + "," + order.orderId + "," +
+                            order.quanttity + "," + order.orderDate + "," + order.recived + "," + order.arrivalDate + ")");
+                    output = "Add Order succeeded";
+                } catch (SQLException e) {
+                    output = "Add Order failed" ;
+                }
+
+            }
+
+        }catch (Exception e){
+            output = "Add Order failed" ;
         }
         System.out.println(output);
     }
-
-
 
     public void updateOrder(int catalogId ,String filed, String value){
 
