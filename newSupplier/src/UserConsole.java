@@ -10,6 +10,7 @@ public class UserConsole {
     private static Database databaseConn;
 
     public static void main(String[] args) {
+
         databaseConn = new Database();
         System.out.println("please select an action by choosing the index or choose to quit by q: \n" +
                 "1.add new supplier \n" +
@@ -95,17 +96,50 @@ public class UserConsole {
             }
             String paymentForm[] = {"check", "cash", "Payments"};
             String payment = paymentForm[Integer.parseInt(paymentIndex) - 1];
+
             System.out.println("please enter supplyForm : 1.Independent 2.Regular days 3.personal invitation");
             String supplyFormIn = in.nextLine();
             while (!(supplyFormIn != "1" || supplyFormIn != "2" || supplyFormIn != "3")) {
                 System.out.println("please enter payment form between 1-3");
                 supplyFormIn = in.nextLine();
             }
+            String supplyForm;
             if(supplyFormIn == "2"){
-                System.out.println("please enter the days of delivery and space between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
+                System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
+                String daysIndex = in.nextLine();
+                // remove spaces if there is
+                daysIndex.replaceAll("\\s+","");
+                //split by days
+                String days []= daysIndex.split(",");
+                //if the user did not enter properly ask him again
+                if(days.length == 1 && daysIndex.length() >1){
+                    System.out.println("you did not enter any days, are you sure? please enter yes, otherwise enter the days:");
+                    daysIndex =  in.nextLine();
+                    daysIndex.replaceAll("\\s+",""); // remove spaces if there is
+                }
+                //initial the supply form with the options
+
+                //if the user want to enter days manually
+                if(!daysIndex.contains("yes"))
+                    days= daysIndex.split(",");
+                    String week[] = {"Sun","Mon","Tue","Wed","Thu","Fri"};
+
+                    for(String index: days){
+                        try {
+                            int ind = Integer.parseInt(index);
+                            if(ind<=6 && ind>=1){
+
+                            }
+                        }
+                        catch (NumberFormatException e){}
+                    }
+
             }
-            String supplyFormOptions [] = {"Independent","Regular days","personal invitation"};
-            String supplyForm = supplyFormOptions[Integer.parseInt(supplyFormIn)-1];
+            else{
+                String supplyFormOptions [] = {"Independent","Regular days","personal invitation"};
+                 supplyForm= supplyFormOptions[Integer.parseInt(supplyFormIn)-1];
+            }
+
             Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
             databaseConn.add_Supplier(supplier);
 

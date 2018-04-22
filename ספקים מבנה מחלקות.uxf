@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>40</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>::Database
+--
+~connection
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>40</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>::UserConsole
+--
+-databaseConnection
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>30</y>
+      <w>170</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>::Order
+--
+~supplierId
+~orderId
+~catalogId
+~quanttity
+~orderDate
+~recived
+~arrivalDate
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>190</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>::Contact
+--
+~supplierId: int
+~firstName: String
+~lastName: String
+~phoneNumber: String
+~email: String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>340</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>::Item
+--
+~catalogId: int
+~supplierId: int
+~price: int
+~manufacturer: String
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>490</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>::Supplier
+--
+~supplierId: int
+~bankAccount: int
+~payment: String
+~supplyForm: String
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>640</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>::Discount
+--
+~catalogId: int
+~quanttity: int
+~discount: int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>50</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+</diagram>
