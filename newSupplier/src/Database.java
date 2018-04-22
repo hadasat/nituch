@@ -332,18 +332,19 @@ public class Database {
 
 
 
-    public void add_Discount(Discount discount) {
+    public String add_Discount(Discount discount) {
         String output = "";
 
         try (Statement stmt  = connection.createStatement()){
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Discount " + "VALUES (" +discount.catalogId +"," +
-                    discount.quanttity +"," + discount.discount  );
-            output = "Add supplier succeeded";
+                    discount.quanttity +"," + discount.discount +")" );
+            output = "Add Discount succeeded";
         } catch (SQLException e) {
-            output = "Add supplier failed" ;
+            output = "Add Discount failed" +e;
         }
         System.out.println(output);
+        return  output;
     }
 
     public void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
@@ -391,7 +392,7 @@ public class Database {
 
 
 
-    public void add_Contact(Contact con) {
+    public String add_Contact(Contact con) {
         String output = "";
 
         try {
@@ -417,6 +418,8 @@ public class Database {
             output = "Add Contact failed no such supplier" ;
         }
         System.out.println(output);
+        return output;
+
     }
 
     //not god!!!!!!!!!!!!!!!!!!!!!!

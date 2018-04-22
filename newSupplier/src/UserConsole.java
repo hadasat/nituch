@@ -86,7 +86,7 @@ public class UserConsole {
         }
     }
 
-    private static void add_order(){
+    public static void add_order(){
 
         Order orderToAdd  =new Order();
         String supplierId = "";
@@ -178,7 +178,7 @@ public class UserConsole {
         }
 
     }
-    private static void print_Suppliers_List(List<Supplier> l){
+    public static void print_Suppliers_List(List<Supplier> l){
 
 
         for (Supplier i: l
@@ -189,7 +189,7 @@ public class UserConsole {
             System.out.println("supplyForm:"+i.supplyForm);
         }
     }
-    private static void showALL_Suppliers(){
+    public static void showALL_Suppliers(){
 
         try {
             List<Supplier> all_s = databaseConn.select_ALL_supplier();
@@ -200,7 +200,7 @@ public class UserConsole {
 
     }
 
-    private static void printItemList(List<Item> l){
+    public static void printItemList(List<Item> l){
         for (Item i: l
                 ) {
             System.out.println("\ncatalogId: "+i.catalogId);
@@ -209,7 +209,7 @@ public class UserConsole {
             System.out.println("manufacturer:"+i.manufacturer);
         }
     }
-    private static void  showALL_items(){
+    public static void  showALL_items(){
 
 
         try {
@@ -221,7 +221,7 @@ public class UserConsole {
 
     }
 
-    private static void printOrderList(List<Order> l){
+    public static void printOrderList(List<Order> l){
         for (Order i: l
                 ) {
 
@@ -234,7 +234,7 @@ public class UserConsole {
             System.out.println("arrivalDate:"+i.arrivalDate);
         }
     }
-    private static void sowh_all_not_recived_orders(){
+    public static void sowh_all_not_recived_orders(){
 
         String supplierId = "";
 
@@ -257,7 +257,7 @@ public class UserConsole {
 
     }
 
-    private static void addNewSupplier() {
+    public static void addNewSupplier() {
         boolean a = true;
 
         String supplierId = "";
@@ -339,7 +339,7 @@ public class UserConsole {
     }
 
 
-    private static boolean addNewContact() {
+    public static boolean addNewContact() {
         String supplierId="";
         while (true){
             System.out.println("please enter supplierId");
@@ -369,7 +369,7 @@ public class UserConsole {
 
     }
 
-    private static boolean showDiscounts(){
+    public static boolean showDiscounts(){
         String catalogId="";
         String quantity="";
         while (true){
@@ -407,7 +407,7 @@ public class UserConsole {
     }
 
 
-    private static boolean orderReportBySupplier(){
+    public static boolean orderReportBySupplier(){
         String supplierId ="";
 
         while (true){
@@ -445,7 +445,7 @@ public class UserConsole {
         return true;
     }
 
-    private static boolean changeSupplierDetailes(){
+    public static boolean changeSupplierDetailes(){
         String supplierId ="";
 
         while (true){
@@ -480,7 +480,7 @@ public class UserConsole {
     }
 
 
-    private static boolean addNewDiscount() {
+    public static boolean addNewDiscount() {
         boolean invalid = true;
         String catalogId="";
         String quanttity="";
@@ -558,7 +558,7 @@ public class UserConsole {
         }
         }
         */
-    private static boolean chooseAcction(String action) {
+    public static boolean chooseAcction(String action) {
 
         return  true;
     }
