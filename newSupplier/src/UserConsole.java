@@ -42,8 +42,8 @@ public class UserConsole {
                     break;
                 case ("7"):
                     System.out.println("please select an action by choosing the index: \n" +
-                            "1.add new supplier \n" +
-                            "2.add new contact for supplier \n" +
+                            "1.add new supplier\n" +
+                            "2.add new contact for supplier\n" +
                             "3.show discounts \n" +
                             "4.order report by supplier\n" +
                             "5.change supplier detailes\n" +
@@ -98,6 +98,9 @@ public class UserConsole {
             while (!(supplyFormIn != "1" || supplyFormIn != "2" || supplyFormIn != "3")) {
                 System.out.println("please enter payment form between 1-3");
                 supplyFormIn = in.nextLine();
+            }
+            if(supplyFormIn == "2"){
+                System.out.println("please enter the days of delivery : 1.Monday, 2.t");
             }
             String supplyFormOptions [] = {"Independent","Regular days","personal invitation"};
             String supplyForm = supplyFormOptions[Integer.parseInt(supplyFormIn)-1];
