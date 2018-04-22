@@ -53,9 +53,9 @@ public class UserConsole {
                 default:
                     System.out.println("please enter a valid command");
             }
+            System.out.println("please enter q for quit, action number or ");
             s = in.nextLine();
         }
-        chooseAcction(s);
     }
 
     private static void addNewSupplier() {
@@ -68,7 +68,6 @@ public class UserConsole {
             System.out.println("please enter supplierId");
             supplierId = in.nextLine();
             if(isNumeric(supplierId)==true){
-
                a=false;
             }else{
                 System.out.println("not A NUMBER!! try again");
