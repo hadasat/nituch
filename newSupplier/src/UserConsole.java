@@ -62,89 +62,84 @@ public class UserConsole {
     private static void addNewSupplier() {
         boolean a = true;
 
-        String supplierId="";
-        String bankAccount="";
+        String supplierId = "";
+        String bankAccount = "";
 
-        while (a){
+        while (a) {
             System.out.println("please enter supplierId");
             supplierId = in.nextLine();
-            if(isNumeric(supplierId)==true){
-               a=false;
-            }else{
+            if (isNumeric(supplierId) == true) {
+                a = false;
+            } else {
                 System.out.println("not A NUMBER!! try again");
             }
         }
-        while (true){
+        while (true) {
             System.out.println("please enter bankAccount");
             bankAccount = in.nextLine();
-            if(isNumeric(bankAccount)==true){
+            if (isNumeric(bankAccount) == true) {
 
                 break;
-            }else{
+            } else {
                 System.out.println("not A NUMBER!! try again");
             }
         }
 
 
-            System.out.println("please choose payment form payment: 1.check, 2.cash, 3.Payments");
-            String paymentIndex = in.nextLine();
+        System.out.println("please choose payment form payment: 1.check, 2.cash, 3.Payments");
+        String paymentIndex = in.nextLine();
 
-            while (!paymentIndex.equals("1")&&!paymentIndex.equals("2")&&!paymentIndex.equals("3")) {
-                System.out.println("please enter payment form between 1-3");
-                paymentIndex = in.nextLine();
+        while (!paymentIndex.equals("1") && !paymentIndex.equals("2") && !paymentIndex.equals("3")) {
+            System.out.println("please enter payment form between 1-3");
+            paymentIndex = in.nextLine();
 
+        }
+        String paymentForm[] = {"check", "cash", "Payments"};
+        String payment = paymentForm[Integer.parseInt(paymentIndex) - 1];
+
+        System.out.println("please enter supplyForm : 1.Independent 2.Regular days 3.personal invitation");
+        String supplyFormIn = in.nextLine();
+        while (!paymentIndex.equals("1") && !paymentIndex.equals("2") && !paymentIndex.equals("3")) {
+            System.out.println("please enter payment form between 1-3");
+            supplyFormIn = in.nextLine();
+        }
+        String supplyForm;
+        if (supplyFormIn.equals("2")) {
+            System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
+            String daysIndex = in.nextLine();
+            // remove spaces if there is
+            daysIndex.replaceAll("\\s+", "");
+            //split by days
+            String days[] = daysIndex.split(",");
+            //if the user did not enter properly ask him again
+            if (days.length == 1 && daysIndex.length() > 1) {
+                System.out.println("you did not enter days in the right format,enter yes to skip , otherwise enter the days:");
+                daysIndex = in.nextLine();
+                daysIndex.replaceAll("\\s+", ""); // remove spaces if there is
+                days = daysIndex.split(",");
             }
-            String paymentForm[] = {"check", "cash", "Payments"};
-            String payment = paymentForm[Integer.parseInt(paymentIndex) - 1];
-
-            System.out.println("please enter supplyForm : 1.Independent 2.Regular days 3.personal invitation");
-            String supplyFormIn = in.nextLine();
-            while (!(supplyFormIn != "1" || supplyFormIn != "2" || supplyFormIn != "3")) {
-                System.out.println("please enter payment form between 1-3");
-                supplyFormIn = in.nextLine();
-            }
-            String supplyForm;
-            if(supplyFormIn == "2"){
-                System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
-                String daysIndex = in.nextLine();
-                // remove spaces if there is
-                daysIndex.replaceAll("\\s+","");
-                //split by days
-                String days []= daysIndex.split(",");
-                //if the user did not enter properly ask him again
-                if(days.length == 1 && daysIndex.length() >1){
-                    System.out.println("you did not enter any days, are you sure? please enter yes, otherwise enter the days:");
-                    daysIndex =  in.nextLine();
-                    daysIndex.replaceAll("\\s+",""); // remove spaces if there is
-                }
-                //initial the supply form with the options
-
-                //if the user want to enter days manually
-                if(!daysIndex.contains("yes"))
-                    days= daysIndex.split(",");
-                    String week[] = {"Sun","Mon","Tue","Wed","Thu","Fri"};
-
-                    for(String index: days){
-                        try {
-                            int ind = Integer.parseInt(index);
-                            if(ind<=6 && ind>=1){
-
-                            }
+            //if the user want to enter days manually
+            if (!daysIndex.contains("yes")) {
+                String week[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri"};
+                supplyForm = "";
+                for (String index : days) {
+                    try {
+                        int ind = Integer.parseInt(index);
+                        if (ind <= 6 && ind >= 1) {
+                            supplyForm += week[ind - 1];
                         }
-                        catch (NumberFormatException e){}
+                    } catch (NumberFormatException e) {
                     }
-
+                }
             }
-            else{
-                String supplyFormOptions [] = {"Independent","Regular days","personal invitation"};
-                 supplyForm= supplyFormOptions[Integer.parseInt(supplyFormIn)-1];
-            }
-
-            Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
-            databaseConn.add_Supplier(supplier);
-
-
+            //check the supply form is not empty
+            if (supplyForm.length() == 0)
+                supplyForm = "Regular days";
+        }
+        Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
+        databaseConn.add_Supplier(supplier);
     }
+
 
     private static boolean addNewContact() {
         String supplierId="";
