@@ -15,9 +15,11 @@ public class UserConsole {
     public static void main(String[] args) {
 
         databaseConn = new Database();
-        System.out.println("please select an action by choosing the index: \n" +
-                "1.add new supplier\n" +
-                "2.add new contact for supplier\n" +
+        Supplier supplier = new Supplier(12341234, 234123122, "check", "Payments");
+        System.out.println(databaseConn.add_Supplier(supplier));
+        System.out.println("please select an action by choosing the index or choose to quit by q: \n" +
+                "1.add new supplier \n" +
+                "2.add new contact for supplier \n" +
                 "3.show discounts \n" +
                 "4.order report by supplier\n" +
                 "5.change supplier detailes\n" +
