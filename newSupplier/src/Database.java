@@ -40,9 +40,9 @@ public class Database {
                     supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\");");
             // stmt.executeUpdate("INSERT INTO Supplier VALUES (123,123,'124','123')");
 
-            System.out.println("Add supplier succeeded");
+            //System.out.println("Add supplier succeeded");
         } catch (SQLException e) {
-            System.out.println("Add supplier failed" );
+            //System.out.println("Add supplier failed" );
         }
         return output;
     }
@@ -83,7 +83,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select supplier"+e);
+            //System.out.println("faild select supplier"+e);
 
         }
         return s;
@@ -109,7 +109,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select supplier");
+            //System.out.println("faild select supplier");
 
         }
         return s;
@@ -172,7 +172,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Item");
+            //System.out.println("faild select Item");
         }
         return output;
     }
@@ -196,7 +196,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Item");
+            //System.out.println("faild select Item");
         }
         return output;
     }
@@ -210,7 +210,7 @@ public class Database {
 
     ////////////////////////////order:
 
-    public void add_order(Order order) {
+    public String add_order(Order order) {
 
 
         String output = "";
@@ -238,10 +238,10 @@ public class Database {
         }catch (Exception e){
             output = "Add Order failed" ;
         }
-        System.out.println(output);
+        return (output);
     }
 
-    public void updateOrder(int catalogId ,String filed, String value){
+    public String updateOrder(int catalogId ,String filed, String value){
 
         String sql = "UPDATE Oredrs SET " +filed+ "= ?  where catalogId = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -255,10 +255,10 @@ public class Database {
 
             pstmt.executeUpdate();
 
-            System.out.println("succeed");
+            return ("succeed");
         } catch (SQLException e) {
 
-            System.out.println( "failed");
+            return( "failed");
         }
 
     }
@@ -288,7 +288,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Order");
+            //System.out.println("faild select Order");
 
         }
         return newOrder;
@@ -321,7 +321,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Order");
+            //System.out.println("faild select Order");
 
         }
         return newOrder;
@@ -350,11 +350,11 @@ public class Database {
         } catch (SQLException e) {
             output = "Add Discount failed" +e;
         }
-        System.out.println(output);
+        //System.out.println(output);
         return  output;
     }
 
-    public void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
+    public String updateDiscount(int catalogId ,int quanttity ,int newDiscount){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -363,9 +363,9 @@ public class Database {
             pstmt.setInt(3, quanttity);
 
             pstmt.executeUpdate();
-            System.out.println("succeed");
+            return ("succeed");
         } catch (SQLException e) {
-            System.out.println( "failed");
+           return ( "failed");
         }
 
     }
@@ -385,7 +385,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Discount");
+            //System.out.println("faild select Discount");
 
         }
         return d;
@@ -424,13 +424,13 @@ public class Database {
         }catch (Exception e){
             output = "Add Contact failed no such supplier" ;
         }
-        System.out.println(output);
+       // System.out.println(output);
         return output;
 
     }
 
     //not god!!!!!!!!!!!!!!!!!!!!!!
-    public void updateContact(int supplierId ,String filed ,String newVal){
+    public String updateContact(int supplierId ,String filed ,String newVal){
 
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -440,9 +440,9 @@ public class Database {
 
 
             pstmt.executeUpdate();
-            System.out.println("succeed");
+            return ("succeed");
         } catch (SQLException e) {
-            System.out.println( "failed");
+            return( "failed");
         }
 
     }
@@ -475,7 +475,7 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Order");
+            //System.out.println("faild select Order");
 
         }
         return newOrder;

@@ -174,7 +174,7 @@ public class UserConsole {
             databaseConn.add_order(orderToAdd);
 
         }catch (Exception e){
-            System.out.println("failed! ");
+            System.out.println("failed to add Order .");
         }
 
     }
@@ -216,7 +216,7 @@ public class UserConsole {
             List<Item> all_items = databaseConn.select_ALL_Item();
             printItemList(all_items);
         }catch (Exception e){
-            System.out.println("failed! ");
+            System.out.println("failed to select item.");
         }
 
     }
@@ -252,7 +252,7 @@ public class UserConsole {
             List<Order> allOrd = databaseConn.select_Not_Recived_Orders(Integer.parseInt(supplierId));
            printOrderList(allOrd);
         }catch (Exception e){
-            System.out.println("failed! ");
+            System.out.println("failed to select Order probably this supplier dos not have unrecived orders.");
         }
 
     }
@@ -362,6 +362,7 @@ public class UserConsole {
         Contact newContact = new Contact(Integer.parseInt(supplierId), firstName, lastName, phoneNumber, email);
         try {
             databaseConn.add_Contact(newContact);
+            System.out.println("failed to add Contact");
             return  true;
         }catch (Exception e){
             return  false;
@@ -400,6 +401,7 @@ public class UserConsole {
             databaseConn.select_Discount(Integer.parseInt(catalogId),Integer.parseInt(quantity));
             return  true;
         }catch (Exception e){
+            System.out.println("failed to select Discount probably this supplier dos not have agreements yet.");
             return  false;
         }
 
@@ -426,6 +428,7 @@ public class UserConsole {
             orders = databaseConn.select_Order(Integer.parseInt(supplierId));
 
         }catch (Exception e){
+            System.out.println("failed to select Order probably this supplier dos not have orders yet .");
             return  false;
         }
 
@@ -474,6 +477,7 @@ public class UserConsole {
             databaseConn.updateSupplier(Integer.parseInt(supplierId),filed,value);
             return  true;
         }catch (Exception e){
+            System.out.println("failed to update Supplier");
             return  false;
         }
 
@@ -530,11 +534,12 @@ public class UserConsole {
                     databaseConn.add_Discount(discount);
 
                 }catch (Exception e){
+                    System.out.println("\nfailed to add Discount");
                     return  false;
                 }
 
             } catch (NumberFormatException e) {
-                System.out.println("your inputs are illegals");
+                System.out.println("\nyour inputs are illegals");
             }
 
         }
