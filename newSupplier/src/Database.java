@@ -40,9 +40,9 @@ public class Database {
                     supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\");");
             // stmt.executeUpdate("INSERT INTO Supplier VALUES (123,123,'124','123')");
 
-            System.out.println("Add supplier succeeded");
+            output ="Add supplier succeeded";
         } catch (SQLException e) {
-            System.out.println("Add supplier failed" );
+            output ="Add supplier failed";
         }
         return output;
     }
@@ -72,14 +72,16 @@ public class Database {
         Supplier s = new Supplier();
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-
             // loop through the result set
-            while (rs.next()) {
-
-                s.supplierId = rs.getInt("supplierId");
-                s.supplyForm = rs.getString("supplyForm");
-                s.payment =  rs.getString("payment");
-                s.bankAccount = rs.getInt("bankAccount");
+            if(rs.wasNull())
+                s = null;
+            else {
+                while (rs.next()) {
+                    s.supplierId = rs.getInt("supplierId");
+                    s.supplyForm = rs.getString("supplyForm");
+                    s.payment = rs.getString("payment");
+                    s.bankAccount = rs.getInt("bankAccount");
+                }
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
@@ -120,7 +122,7 @@ public class Database {
     ////////////////item:****************
 
     public String add_item(Item item) {
-        String output = "";
+        String output;
 
         try (Statement stmt  = connection.createStatement()){
             // loop through the result set
@@ -135,7 +137,7 @@ public class Database {
 
 
     public String updateItem(int supplierId ,int CatalogId, int new_price_value){
-
+        String output;
         String sql = "UPDATE Item SET price= ?  where supplierId = ? AND CatalogId = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
@@ -145,11 +147,11 @@ public class Database {
            // pstmt.setString(3, m);
 
             pstmt.executeUpdate();
-            return "updateItem succeed";
+            output =  "updateItem succeed";
         } catch (SQLException e) {
-            return "updateItem failed";
+            output =  "updateItem failed";
         }
-
+        return output;
     }
 
 
@@ -210,14 +212,9 @@ public class Database {
 
     ////////////////////////////order:
 
-    public void add_order(Order order) {
-
-
+    public String add_order(Order order) {
         String output = "";
-
         try {
-
-
             Supplier s = select_supplier(order.supplierId);
             output = s.payment;
             if (output.equals("")) {
@@ -238,44 +235,35 @@ public class Database {
         }catch (Exception e){
             output = "Add Order failed" ;
         }
-        System.out.println(output);
+        return output;
     }
 
-    public void updateOrder(int catalogId ,String filed, String value){
-
+    public String updateOrder(int catalogId ,String filed, String value){
+        String output;
         String sql = "UPDATE Oredrs SET " +filed+ "= ?  where catalogId = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, catalogId);
-            if(filed =="quanttity"||filed =="recived" ) {
+            if(filed =="quanttity"||filed =="recived") {
                 pstmt.setInt(1,  Integer.parseInt(value));
             }
-            else if(filed =="orderDate"||filed =="arrivalDate") {
+            else if(filed =="orderDate" || filed =="arrivalDate") {
                 pstmt.setString(1,value);
             }
-
             pstmt.executeUpdate();
-
-            System.out.println("succeed");
+            output = "update order succeed";
         } catch (SQLException e) {
-
-            System.out.println( "failed");
+            output =  "update order failed";
         }
-
+        return output;
     }
 
     public List<Order> select_Order(int supplierId) {
         String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId  ;
-
-
         List<Order> newOrder = new ArrayList<Order>();
-
-
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-
             // loop through the result set
             while (rs.next()) {
-
                 Order tmpO = new Order();
                 tmpO.supplierId = rs.getInt("supplierId");
                 tmpO.orderId = rs.getInt("orderId");
@@ -298,11 +286,7 @@ public class Database {
 
     public List<Order> select_Not_Recived_Orders(int supplierId) {
         String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId +"AND recived = 0"  ;
-
-
         List<Order> newOrder = new ArrayList<Order>();
-
-
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
@@ -340,7 +324,7 @@ public class Database {
 
 
     public String add_Discount(Discount discount) {
-        String output = "";
+        String output ;
 
         try (Statement stmt  = connection.createStatement()){
             // loop through the result set
@@ -350,12 +334,11 @@ public class Database {
         } catch (SQLException e) {
             output = "Add Discount failed" +e;
         }
-        System.out.println(output);
         return  output;
     }
 
-    public void updateDiscount(int catalogId ,int quanttity ,int newDiscount){
-
+    public String updateDiscount(int catalogId ,int quanttity ,int newDiscount){
+        String output;
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, newDiscount);
@@ -363,11 +346,11 @@ public class Database {
             pstmt.setInt(3, quanttity);
 
             pstmt.executeUpdate();
-            System.out.println("succeed");
+            output = "update discount succeed";
         } catch (SQLException e) {
-            System.out.println( "failed");
+            output = "update discount failed";
         }
-
+        return output;
     }
 
     public Discount select_Discount(int catalogId, int quanttity) {
@@ -385,8 +368,6 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Discount");
-
         }
         return d;
     }
@@ -400,14 +381,12 @@ public class Database {
 
 
     public String add_Contact(Contact con) {
-        String output = "";
-
+        String output ;
         try {
             Supplier s = select_supplier(con.supplierId);
             output = s.payment;
             if(output.equals("")){
                 output = "Add Contact failed no such supplier" ;
-
             }else{
                 try (Statement stmt  = connection.createStatement()){
                     // loop through the result set
@@ -415,73 +394,72 @@ public class Database {
                             con.firstName +"\",\"" + con.lastName +"\",\"" + con.phoneNumber +"\",\"" + con.email   +"\")");
                     output = "Add Contact succeeded";
                 } catch (SQLException e) {
-                    output = "Add Contact failed"+e ;
+                    output = "Add Contact failed" ;
                 }
-
             }
-
 
         }catch (Exception e){
             output = "Add Contact failed no such supplier" ;
         }
-        System.out.println(output);
         return output;
 
     }
 
     //not god!!!!!!!!!!!!!!!!!!!!!!
-    public void updateContact(int supplierId ,String filed ,String newVal){
-
+    public String updateContact(int supplierId ,String filed ,String newVal){
+        String output ;
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, supplierId);
-
             pstmt.setString(1, newVal);
-
-
             pstmt.executeUpdate();
-            System.out.println("succeed");
+            output = "update contact succeed";
         } catch (SQLException e) {
-            System.out.println( "failed");
+            output= "update contact failed";
         }
-
+        return output;
     }
-
-
-
 
     public List<Contact> select_All_Contact_of_supplier(int supplierId) {
         String sql = "SELECT * FROM Contact WHERE supplierId=" +supplierId  ;
-
-
         List<Contact> newOrder = new ArrayList<Contact>();
-
-
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-
             // loop through the result set
             while (rs.next()) {
-
                 Contact tmpC = new Contact();
                 tmpC.supplierId = rs.getInt("supplierId");
                 tmpC.firstName = rs.getString("firstName");
                 tmpC.lastName = rs.getString("lastName");
                 tmpC.phoneNumber = rs.getString("phoneNumber");
                 tmpC.email = rs.getString("email");
-
                 newOrder.add(tmpC);
-
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            System.out.println("faild select Order");
-
         }
         return newOrder;
     }
 
+    public String delete(String table,String filed,String value) {
+        return delete(table,filed,value,"","");
+    }
 
+    public String delete(String table,String filed,String value, String filed2,String value2){
+        String output ;
+        String sql = "delete from " + table + " where " + filed  + "="  + value;
+        if(!filed2.equals(""))
+            sql += " and " + filed2 + "=" + value2;
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.executeUpdate();
+            output = "delete succeed";
+        }
+        catch (Exception e){
+            output = "delete failed";
+        }
+        return output;
+    }
 
     ////////////**********************************
 
