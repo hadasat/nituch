@@ -4,13 +4,12 @@ import static org.junit.Assert.*;
 public class testDatabase {
 
 
+    Database databaseConn = new Database();
+
     @Test
     void testAdd_SupplierSucssed() {
         try {
-            Database databaseConn = databaseConn = new Database();
             assertEquals("Add supplier succeeded", databaseConn.add_Supplier(new Supplier(12341234, 234123122, "check", "Payments")));
-
-
         } catch (Exception e) {
 
         }
@@ -21,9 +20,7 @@ public class testDatabase {
     @Test
     void testAdd_SupplierFailed() {
         try {
-            Database databaseConn = databaseConn = new Database();
             assertEquals("Add item failed", databaseConn.add_Supplier(new Supplier(12341234, 234123122, "ttgy", "9")));
-
 
         } catch (Exception e) {
 
@@ -41,7 +38,6 @@ public class testDatabase {
         String email = "eliper@post.barIlan.ac.il";
 
         try {
-            Database databaseConn = databaseConn = new Database();
 
             assertEquals("Add Contact succeeded", databaseConn.add_Contact(new Contact(supplierId, firstName, lastName, phoneNumber, email)));
 
@@ -63,7 +59,6 @@ public class testDatabase {
 
         try {
 
-            Database databaseConn = databaseConn = new Database();
             assertEquals("Add Contact failed no such supplier", databaseConn.add_Contact(new Contact(supplierId, firstName, lastName, phoneNumber, email)));
 
 
@@ -83,7 +78,7 @@ public class testDatabase {
 
 
         try {
-            Database databaseConn = databaseConn = new Database();
+
             assertEquals("Add Discount succeeded", databaseConn.add_Discount(new Discount(catalogId,quanttity,discount)));
 
 
@@ -103,7 +98,6 @@ public class testDatabase {
 
         try {
 
-            Database databaseConn = databaseConn = new Database();
             assertEquals("Add Discount failed", databaseConn.add_Discount(new Discount(catalogId,quanttity,discount)));
 
 
@@ -121,11 +115,8 @@ public class testDatabase {
 
 
         try {
-            Database databaseConn = databaseConn = new Database();
+
             assertEquals("208666623", databaseConn.select_supplier((s)).supplierId);
-
-
-
 
         } catch (Exception e) {
 
@@ -140,11 +131,8 @@ public class testDatabase {
 
 
         try {
-            Database databaseConn = databaseConn = new Database();
+
             assertEquals("", databaseConn.select_supplier((s)).supplierId);
-
-
-
 
         } catch (Exception e) {
 
@@ -165,11 +153,8 @@ public class testDatabase {
 
 
         try {
-            Database databaseConn = databaseConn = new Database();
+
             assertEquals("208666623", databaseConn.select_Order((s)).get(0).supplierId);
-
-
-
 
         } catch (Exception e) {
 
@@ -184,7 +169,7 @@ public class testDatabase {
 
 
         try {
-            Database databaseConn = databaseConn = new Database();
+
             assertEquals("", databaseConn.select_Order((s)).get(0).supplierId);
 
 

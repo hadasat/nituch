@@ -21,6 +21,13 @@ public class Database {
 
     }
 
+    public void closeConnection(){
+        try {
+            connection.close();
+        }
+        catch (Exception e){}
+    }
+
 
     public String add_Supplier(Supplier supplier) {
         String output = "";
