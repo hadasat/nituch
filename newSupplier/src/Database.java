@@ -33,8 +33,7 @@ public class Database {
         String output = "";
 
         try (Statement stmt  = connection.createStatement()){
-            System.out.println("INSERT INTO Supplier VALUES (" +supplier.supplierId +"," +
-                    supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\")");
+
             // loop through the result set
             stmt.executeUpdate("INSERT INTO Supplier VALUES (" +supplier.supplierId +"," +
                     supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\");");

@@ -15,8 +15,6 @@ public class UserConsole {
     public static void main(String[] args) {
 
         databaseConn = new Database();
-        Supplier supplier = new Supplier(12341234, 234123122, "check", "Payments");
-        System.out.println(databaseConn.add_Supplier(supplier));
         System.out.println("please select an action by choosing the index or choose to quit by q: \n" +
                 "1.add new supplier \n" +
                 "2.add new contact for supplier \n" +
@@ -25,15 +23,13 @@ public class UserConsole {
                 "5.change supplier detailes\n" +
                 "6.add new discount\n" +
                 "7.print the menu again\n"+
-
                 "8.show all not-recived orders\n" +
-                "9.print all suppliers\n" +
-                "10.print all items"
+                "9.print all suppliers"
 
 
         );
         String s = in.nextLine();
-        while (s != "q"){
+        while (!s.equals("q")){
             switch (s) {
                 case ("1"):
                     addNewSupplier();
@@ -54,7 +50,7 @@ public class UserConsole {
                     addNewDiscount();
                     break;
                 case ("7"):
-                    System.out.println("please select an action by choosing the index: \n" +
+                    System.out.println("please select an action by choosing the index or choose to quit by q: "+
                             "1.add new supplier\n" +
                             "2.add new contact for supplier\n" +
                             "3.show discounts \n" +
@@ -62,10 +58,9 @@ public class UserConsole {
                             "5.change supplier detailes\n" +
                             "6.add new discount\n" +
                             "7.print the menu again\n"+
-
                             "8.show all not-recived orders\n" +
-                            "9.print all suppliers\n" +
-                            "10.print all items"
+                            "8.show all not-recived orders\n" +
+                            "9.print all suppliers"
 
 
                     );
@@ -75,9 +70,6 @@ public class UserConsole {
                     break;
                 case ("9"):
                     showALL_Suppliers();
-                    break;
-                case ("10"):
-                    showALL_items();
                     break;
 
                 default:
@@ -337,7 +329,13 @@ public class UserConsole {
                 supplyForm = "Regular days";
         }
         Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
-        databaseConn.add_Supplier(supplier);
+        try {
+            databaseConn.add_Supplier(supplier);
+            System.out.println("sucssed to add new supplier supplierId: "+supplier.supplierId);
+        }catch (Exception e){
+            System.out.println("failed to add new supplier");
+        }
+
     }
 
 
@@ -364,9 +362,10 @@ public class UserConsole {
         Contact newContact = new Contact(Integer.parseInt(supplierId), firstName, lastName, phoneNumber, email);
         try {
             databaseConn.add_Contact(newContact);
-            System.out.println("failed to add Contact");
+            System.out.println("sucssed to add Contact for supplier: "+ supplierId);
             return  true;
         }catch (Exception e){
+            System.out.println("failed to add Contact");
             return  false;
         }
 
@@ -400,12 +399,23 @@ public class UserConsole {
 
 
         try {
-            databaseConn.select_Discount(Integer.parseInt(catalogId),Integer.parseInt(quantity));
+            Discount d = new Discount();
+            d=databaseConn.select_Discount(Integer.parseInt(catalogId),Integer.parseInt(quantity));
+            printDiscount(d);
             return  true;
         }catch (Exception e){
             System.out.println("failed to select Discount probably this supplier dos not have agreements yet.");
             return  false;
         }
+
+
+    }
+
+    private static void printDiscount(Discount d){
+
+        System.out.println("\ncatalogId:"+d.catalogId);
+        System.out.println("quanttity:"+d.quanttity);
+        System.out.println("discount:"+d.discount);
 
 
     }
@@ -428,6 +438,7 @@ public class UserConsole {
         List<Order> orders;
         try {
             orders = databaseConn.select_Order(Integer.parseInt(supplierId));
+
 
         }catch (Exception e){
             System.out.println("failed to select Order probably this supplier dos not have orders yet .");
@@ -477,6 +488,7 @@ public class UserConsole {
 
         try {
             databaseConn.updateSupplier(Integer.parseInt(supplierId),filed,value);
+            System.out.println("sucssed to update Supplier");
             return  true;
         }catch (Exception e){
             System.out.println("failed to update Supplier");
@@ -535,13 +547,14 @@ public class UserConsole {
                 try {
                     databaseConn.add_Discount(discount);
 
+                    System.out.println("sucssed to add Discount");
                 }catch (Exception e){
-                    System.out.println("\nfailed to add Discount");
+                    System.out.println("failed to add Discount");
                     return  false;
                 }
 
             } catch (NumberFormatException e) {
-                System.out.println("\nyour inputs are illegals");
+                System.out.println("your inputs are illegals");
             }
 
         }
@@ -565,10 +578,6 @@ public class UserConsole {
         }
         }
         */
-    public static boolean chooseAcction(String action) {
-
-        return  true;
-    }
 
     public static boolean isNumeric(String str)
     {
