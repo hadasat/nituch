@@ -16,15 +16,15 @@ public class UserConsole {
 
         databaseConn = new Database();
         System.out.println("please select an action by choosing the index or choose to quit by q: \n" +
-                "1.add new supplier \n" +
+                "1.add new supplier card \n" +
                 "2.add new contact for supplier \n" +
-                "3.show discounts \n" +
-                "4.order report by supplier\n" +
-                "5.change supplier detailes\n" +
-                "6.add new discount\n" +
+                "3.show discounts of item \n" +
+                "4.order report (of supplier)\n" +
+                "5.update supplier details\n" +
+                "6.add new agreement with supplier\n" +
                 "7.print the menu again\n"+
-                "8.show all not-recived orders\n" +
-                "9.print all suppliers"
+                "8.show all not-received orders of supplier\n" +
+                "9.print all suppliers in the system"
 
 
         );
@@ -51,16 +51,17 @@ public class UserConsole {
                     break;
                 case ("7"):
                     System.out.println("please select an action by choosing the index or choose to quit by q: "+
-                            "1.add new supplier\n" +
-                            "2.add new contact for supplier\n" +
-                            "3.show discounts \n" +
-                            "4.order report by supplier\n" +
-                            "5.change supplier detailes\n" +
-                            "6.add new discount\n" +
+                            "1.add new supplier card \n" +
+                            "2.add new contact for supplier \n" +
+                            "3.show discounts of item \n" +
+                            "4.order report (of supplier)\n" +
+                            "5.update supplier details\n" +
+                            "6.add new agreement with supplier\n" +
                             "7.print the menu again\n"+
-                            "8.show all not-recived orders\n" +
-                            "8.show all not-recived orders\n" +
-                            "9.print all suppliers"
+                            "8.show all not-received orders of supplier\n" +
+                            "9.print all suppliers in the system"
+
+
 
 
                     );
