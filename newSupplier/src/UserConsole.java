@@ -25,8 +25,6 @@ public class UserConsole {
                 "7.print the menu again\n"+
                 "8.show all not-received orders of supplier\n" +
                 "9.print all suppliers in the system"
-
-
         );
         String s = in.nextLine();
         while (!s.equals("q")){
@@ -60,10 +58,6 @@ public class UserConsole {
                             "7.print the menu again\n"+
                             "8.show all not-received orders of supplier\n" +
                             "9.print all suppliers in the system"
-
-
-
-
                     );
                     break;
                 case ("8"):
