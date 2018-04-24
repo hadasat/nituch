@@ -1,3 +1,6 @@
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,54 +13,326 @@ public class UserConsole {
     private static Database databaseConn;
 
     public static void main(String[] args) {
+
         databaseConn = new Database();
-        System.out.println("please select an action by choosing the index: \n" +
+        Supplier supplier = new Supplier(12341234, 234123122, "check", "Payments");
+        System.out.println(databaseConn.add_Supplier(supplier));
+        System.out.println("please select an action by choosing the index or choose to quit by q: \n" +
                 "1.add new supplier \n" +
                 "2.add new contact for supplier \n" +
                 "3.show discounts \n" +
                 "4.order report by supplier\n" +
-                "5.change supplier detailes" +
-                "6.add new discount");
-
+                "5.change supplier detailes\n" +
+                "6.add new discount\n" +
+                "7.print the menu again");
         String s = in.nextLine();
-        chooseAcction(s);
+        while (s != "q"){
+            switch (s) {
+                case ("1"):
+                    addNewSupplier();
+                    break;
+                case ("2"):
+                    addNewContact();
+                    break;
+                case ("3"):
+                    showDiscounts();
+                    break;
+                case ("4"):
+                    orderReportBySupplier();
+                    break;
+                case ("5"):
+                    changeSupplierDetailes();
+                    break;
+                case ("6"):
+                    addNewDiscount();
+                    break;
+                case ("7"):
+                    System.out.println("please select an action by choosing the index: \n" +
+                            "1.add new supplier\n" +
+                            "2.add new contact for supplier\n" +
+                            "3.show discounts \n" +
+                            "4.order report by supplier\n" +
+                            "5.change supplier detailes\n" +
+                            "6.add new discount\n" +
+                            "7.print the menu again");
+                    break;
+                default:
+                    System.out.println("please enter a valid command");
+            }
+            System.out.println("please enter q for quit, action number or ");
+            s = in.nextLine();
+        }
     }
 
+<<<<<<< HEAD
+    public static void add_order(){
+
+        Order orderToAdd  =new Order();
+        String supplierId = "";
+        String orderId = "";
+
+        String catalogId = "";
+        String quanttity = "";
+
+        String orderDate = "";
+        String recived = "";
+
+        String arrivalDate = "";
+
+
+        try {
+
+
+            while (true) {
+                System.out.println("please enter supplierId");
+                supplierId = in.nextLine();
+                if (isNumeric(supplierId) == true) {
+
+                    break;
+                } else {
+                    System.out.println("not A NUMBER!! try again");
+                }
+            }
+
+            while (true) {
+                System.out.println("please enter orderId");
+                orderId = in.nextLine();
+                if (isNumeric(orderId) == true) {
+
+                    break;
+                } else {
+                    System.out.println("not A NUMBER!! try again");
+                }
+            }
+            while (true) {
+                System.out.println("please enter catalogId");
+                catalogId = in.nextLine();
+                if (isNumeric(catalogId) == true) {
+
+                    break;
+                } else {
+                    System.out.println("not A NUMBER!! try again");
+                }
+            }
+
+            while (true) {
+                System.out.println("please enter quanttity");
+                quanttity = in.nextLine();
+                if (isNumeric(quanttity) == true) {
+
+                    break;
+                } else {
+                    System.out.println("not A NUMBER!! try again");
+                }
+            }
+
+
+
+            System.out.println("please enter orderDate in format dd/mm/yyyy");
+            orderDate = in.nextLine();
+
+
+            while (true) {
+                System.out.println("please enter recived : if order recived enetr 1 else enter 0");
+                recived = in.nextLine();
+                if (recived.equals("1")||recived.equals("0")) {
+
+                    break;
+                } else {
+                    System.out.println("not  1 or 0!! try again");
+                }
+            }
+
+
+            System.out.println("please enter arrivalDate in format dd/mm/yyyy yuo can leave this filed empty and press Enter");
+            arrivalDate = in.nextLine();
+
+
+
+            orderToAdd= new Order(Integer.parseInt(supplierId),Integer.parseInt(orderId),Integer.parseInt(catalogId),Integer.parseInt(quanttity),orderDate, Integer.parseInt(recived), arrivalDate);
+            databaseConn.add_order(orderToAdd);
+
+        }catch (Exception e){
+            System.out.println("failed to add Order .");
+        }
+
+    }
+    public static void print_Suppliers_List(List<Supplier> l){
+
+
+        for (Supplier i: l
+                ) {
+            System.out.println("\nsupplierId: "+i.supplierId);
+            System.out.println("bankAccount: "+i.bankAccount);
+            System.out.println("payment: "+i.payment);
+            System.out.println("supplyForm:"+i.supplyForm);
+        }
+    }
+    public static void showALL_Suppliers(){
+
+        try {
+            List<Supplier> all_s = databaseConn.select_ALL_supplier();
+            print_Suppliers_List(all_s);
+        }catch (Exception e){
+            System.out.println("failed! ");
+        }
+
+    }
+
+    public static void printItemList(List<Item> l){
+        for (Item i: l
+                ) {
+            System.out.println("\ncatalogId: "+i.catalogId);
+            System.out.println("supplierId: "+i.supplierId);
+            System.out.println("price: "+i.price);
+            System.out.println("manufacturer:"+i.manufacturer);
+        }
+    }
+    public static void  showALL_items(){
+
+
+        try {
+            List<Item> all_items = databaseConn.select_ALL_Item();
+            printItemList(all_items);
+        }catch (Exception e){
+            System.out.println("failed to select item.");
+        }
+
+    }
+
+    public static void printOrderList(List<Order> l){
+        for (Order i: l
+                ) {
+
+            System.out.println("\norderId: "+i.orderId);
+            System.out.println("catalogId: "+i.catalogId);
+            System.out.println("supplierId: "+i.supplierId);
+            System.out.println("quanttity: "+i.quanttity);
+            System.out.println("orderDate: "+i.orderDate);
+            System.out.println("is recived? : "+(i.recived==1));
+            System.out.println("arrivalDate:"+i.arrivalDate);
+        }
+    }
+    public static void sowh_all_not_recived_orders(){
+
+        String supplierId = "";
+
+        while (true) {
+            System.out.println("please enter supplierId");
+            supplierId = in.nextLine();
+            if (isNumeric(supplierId) == true) {
+
+                break;
+            } else {
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+        try {
+            List<Order> allOrd = databaseConn.select_Not_Recived_Orders(Integer.parseInt(supplierId));
+           printOrderList(allOrd);
+        }catch (Exception e){
+            System.out.println("failed to select Order probably this supplier dos not have unrecived orders.");
+        }
+
+    }
+
+    public static void addNewSupplier() {
+=======
     private static void addNewSupplier() {
-        System.out.println("please enter supplierId");
-        String supplierId = in.nextLine();
-        System.out.println("please enter bankAccount");
-        String bankAccount = in.nextLine();
+>>>>>>> 2c6b8a35d4c604b5d5b179ee7401359812832ad8
+        boolean a = true;
+
+        String supplierId = "";
+        String bankAccount = "";
+
+        while (a) {
+            System.out.println("please enter supplierId");
+            supplierId = in.nextLine();
+            if (isNumeric(supplierId) == true) {
+                a = false;
+            } else {
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+        while (true) {
+            System.out.println("please enter bankAccount");
+            bankAccount = in.nextLine();
+            if (isNumeric(bankAccount) == true) {
+
+                break;
+            } else {
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+
+
         System.out.println("please choose payment form payment: 1.check, 2.cash, 3.Payments");
         String paymentIndex = in.nextLine();
-<<<<<<< HEAD
-       while (!(paymentIndex != "1" || paymentIndex != "2" || paymentIndex != "3")) {
-           System.out.println("please enter payment form between 1-3");
-           paymentIndex = in.nextLine();
-       }
-=======
-        while (!(paymentIndex != "1" || paymentIndex != "2" || paymentIndex != "3")) {
+
+        while (!paymentIndex.equals("1") && !paymentIndex.equals("2") && !paymentIndex.equals("3")) {
             System.out.println("please enter payment form between 1-3");
             paymentIndex = in.nextLine();
+
         }
->>>>>>> b61a641000f6d128202ec812bf08f9b9796dfb6a
         String paymentForm[] = {"check", "cash", "Payments"};
         String payment = paymentForm[Integer.parseInt(paymentIndex) - 1];
+
         System.out.println("please enter supplyForm : 1.Independent 2.Regular days 3.personal invitation");
         String supplyFormIn = in.nextLine();
-        while (!(supplyFormIn != "1" || supplyFormIn != "2" || supplyFormIn != "3")) {
+        while (!paymentIndex.equals("1") && !paymentIndex.equals("2") && !paymentIndex.equals("3")) {
             System.out.println("please enter payment form between 1-3");
             supplyFormIn = in.nextLine();
         }
-        String supplyFormOptions [] = {"Independent","Regular days","personal invitation"};
-        String supplyForm = supplyFormOptions[Integer.parseInt(supplyFormIn)-1];
-        Supplier supplier = new Supplier(supplierId, Integer.parseInt(bankAccount), payment, supplyForm);
+        String supplyForm = "";
+        if (supplyFormIn.equals("2")) {
+            System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
+            String daysIndex = in.nextLine();
+            // remove spaces if there is
+            daysIndex.replaceAll("\\s+", "");
+            //split by days
+            String days[] = daysIndex.split(",");
+            //if the user did not enter properly ask him again
+            if (days.length == 1 && daysIndex.length() > 1) {
+                System.out.println("you did not enter days in the right format,enter yes to skip , otherwise enter the days:");
+                daysIndex = in.nextLine();
+                daysIndex.replaceAll("\\s+", ""); // remove spaces if there is
+                days = daysIndex.split(",");
+            }
+            //if the user want to enter days manually
+            if (!daysIndex.contains("yes")) {
+                String week[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri"};
+                supplyForm = "";
+                for (String index : days) {
+                    try {
+                        int ind = Integer.parseInt(index);
+                        if (ind <= 6 && ind >= 1) {
+                            supplyForm += week[ind - 1] + " ";
+                        }
+                    } catch (NumberFormatException e) {
+                    }
+                }
+            }
+            //check the supply form is not empty
+            if (supplyForm.length() == 0)
+                supplyForm = "Regular days";
+        }
+        Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
         databaseConn.add_Supplier(supplier);
     }
 
-    private static void addNewContact() {
-        System.out.println("please enter supplierId");
-        String supplierId = in.nextLine();
+
+    private static boolean addNewContact() {
+        String supplierId="";
+        while (true){
+            System.out.println("please enter supplierId");
+            supplierId = in.nextLine();
+            if(isNumeric(supplierId)==true){
+
+                break;
+            }else{
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
         System.out.println("please enter first Name");
         String firstName = in.nextLine();
         System.out.println("please enter last Name");
@@ -66,22 +341,80 @@ public class UserConsole {
         String phoneNumber = in.nextLine();
         System.out.println("please enter email");
         String email = in.nextLine();
-        Contact newContact = new Contact(supplierId, firstName, lastName, phoneNumber, email);
-        databaseConn.add_Contact(newContact);
-<<<<<<< HEAD
+        Contact newContact = new Contact(Integer.parseInt(supplierId), firstName, lastName, phoneNumber, email);
+        try {
+            databaseConn.add_Contact(newContact);
+            System.out.println("failed to add Contact");
+            return  true;
+        }catch (Exception e){
+            return  false;
+        }
+
     }
 
-    private static void showDiscounts(){
-        System.out.println("please enter catalogId");
-        String catalogId = in.nextLine();
-        System.out.println("please enter quantity");
-        String quantity = in.nextLine();
-        databaseConn.select_Discount(catalogId,quantity);
+    private static boolean showDiscounts(){
+        String catalogId="";
+        String quantity="";
+        while (true){
+            System.out.println("please enter catalogId");
+            catalogId= in.nextLine();
+            if(isNumeric(catalogId)==true){
+
+                break;
+            }else{
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+
+        while (true){
+            System.out.println("please enter quantity");
+            quantity = in.nextLine();
+            if(isNumeric(quantity)==true){
+
+                break;
+            }else{
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+
+
+
+        try {
+            databaseConn.select_Discount(Integer.parseInt(catalogId),Integer.parseInt(quantity));
+            return  true;
+        }catch (Exception e){
+            System.out.println("failed to select Discount probably this supplier dos not have agreements yet.");
+            return  false;
+        }
+
+
     }
-    private static void orderReportBySupplier(){
-        System.out.println("please enter supplierId");
-        String supplierId = in.nextLine();
-        List<Order> orders = databaseConn.select_Order(supplierId);
+
+
+    private static boolean orderReportBySupplier(){
+        String supplierId ="";
+
+        while (true){
+            System.out.println("please enter supplierId");
+            supplierId = in.nextLine();
+            if(isNumeric(supplierId)==true){
+
+                break;
+            }else{
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+
+        List<Order> orders;
+        try {
+            orders = databaseConn.select_Order(Integer.parseInt(supplierId));
+
+        }catch (Exception e){
+            System.out.println("failed to select Order probably this supplier dos not have orders yet .");
+            return  false;
+        }
+
+
         int index = 0;
         for(Order order:orders){
             String output = index + ". order id: " + order.orderId +", quantity: " + order.quanttity +
@@ -94,11 +427,23 @@ public class UserConsole {
             index++;
             System.out.println(output);
         }
+        return true;
     }
 
-    private static void changeSupplierDetailes(){
-        System.out.println("please enter supplier id:");
-        String supplierId = in.nextLine();
+    private static boolean changeSupplierDetailes(){
+        String supplierId ="";
+
+        while (true){
+            System.out.println("please enter supplierId");
+            supplierId = in.nextLine();
+            if(isNumeric(supplierId)==true){
+
+                break;
+            }else{
+                System.out.println("not A NUMBER!! try again");
+            }
+        }
+
         System.out.println("please enter a field to update: 1.bankAccount 2.payment 3.supplyForm");
         String filedIndex = in.nextLine();
         while (!(filedIndex != "1" || filedIndex != "2" || filedIndex != "3")) {
@@ -109,58 +454,78 @@ public class UserConsole {
         String filed = fileds[Integer.parseInt(filedIndex)-1];
         System.out.println("please enter new value for "+filed+": ");
         String value = in.nextLine();
-        databaseConn.updateSupplier(supplierId,filed,value);
-    }
 
-=======
-    }
-
-    private static void showDiscounts(){
-        System.out.println("please enter catalogId");
-        String catalogId = in.nextLine();
-        System.out.println("please enter quantity");
-        String quantity = in.nextLine();
-        databaseConn.select_Discount(catalogId,quantity);
-    }
-    private static void orderReportBySupplier(){
-        System.out.println("please enter supplierId");
-        String supplierId = in.nextLine();
-        List<Order> orders = databaseConn.select_Order(supplierId);
-        int index = 0;
-        for(Order order:orders){
-            String output = index + ". order id: " + order.orderId +", quantity: " + order.quanttity +
-                    ", arrival date: " + order.arrivalDate + ", ordered Date: "+order.orderDate +
-                    ", supplier id: " + order.supplierId + ", catalog id: "+order.catalogId + ", recived: ";
-            if(order.recived ==1)
-                output += "yes";
-            else
-                output += "no";
-            index++;
-            System.out.println(output);
+        try {
+            databaseConn.updateSupplier(Integer.parseInt(supplierId),filed,value);
+            return  true;
+        }catch (Exception e){
+            System.out.println("failed to update Supplier");
+            return  false;
         }
+
     }
 
-    private static void changeSupplierDetailes(){
-        System.out.println("please enter supplier id:");
-        String supplierId = in.nextLine();
-        System.out.println("please enter a field to update: 1.bankAccount 2.payment 3.supplyForm");
-        String filedIndex = in.nextLine();
-        while (!(filedIndex != "1" || filedIndex != "2" || filedIndex != "3")) {
-            System.out.println("please enter payment form between 1-3");
-            filedIndex = in.nextLine();
+
+    private static boolean addNewDiscount() {
+        boolean invalid = true;
+        String catalogId="";
+        String quanttity="";
+        String discountValue="";
+        while (invalid) {
+            try {
+                while (true){
+                    System.out.println("please enter catalogId:");
+                    catalogId = in.nextLine();
+                    if(isNumeric(catalogId)==true){
+
+                        break;
+                    }else{
+                        System.out.println("not A NUMBER!! try again");
+                    }
+                }
+
+                while (true){
+                    System.out.println("please enter quanttity:");
+                    quanttity = in.nextLine();
+                    if(isNumeric(quanttity)==true){
+
+                        break;
+                    }else{
+                        System.out.println("not A NUMBER!! try again");
+                    }
+                }
+
+                while (true){
+                    System.out.println("please enter discount:");
+                    discountValue = in.nextLine();
+                    if(isNumeric(discountValue)==true){
+
+                        break;
+                    }else{
+                        System.out.println("not A NUMBER!! try again");
+                    }
+                }
+
+
+
+
+                invalid = false;
+                Discount discount = new Discount(Integer.parseInt(catalogId),Integer.parseInt(quanttity),Integer.parseInt(discountValue));
+
+                try {
+                    databaseConn.add_Discount(discount);
+
+                }catch (Exception e){
+                    System.out.println("\nfailed to add Discount");
+                    return  false;
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("\nyour inputs are illegals");
+            }
+
         }
-        String fileds [] = {"bankAccount","payment","supplyForm"};
-        String filed = fileds[Integer.parseInt(filedIndex)-1];
-        System.out.println("please enter new value for "+filed+": ");
-        String value = in.nextLine();
-        databaseConn.updateSupplier(supplierId,filed,value);
-    }
-
->>>>>>> b61a641000f6d128202ec812bf08f9b9796dfb6a
-
-    private static void addNewDiscount(){
-        Discount discount = new Discount();
-        databaseConn.add_Discount();
+        return  true;
     }
     /*
         public List<Order> select_Last_Order(String supplierId) {
@@ -180,33 +545,22 @@ public class UserConsole {
         }
         }
         */
-    private static void chooseAcction(String action) {
-        switch (action) {
-            case ("1"):
-                addNewSupplier();
-                break;
+    private static boolean chooseAcction(String action) {
 
-            case ("2"):
-                addNewContact();
-                break;
-            case ("3"):
-                showDiscounts();
-                break;
-            case ("4"):
-                orderReportBySupplier();
-                break;
-            case ("5"):
-                changeSupplierDetailes();
-                break;
-            case ("6"):
-                addNewDiscount();
-                break;
-
-        }
+        return  true;
     }
 
-<<<<<<< HEAD
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            int d = Integer.parseInt(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
 }
-=======
-}
->>>>>>> b61a641000f6d128202ec812bf08f9b9796dfb6a

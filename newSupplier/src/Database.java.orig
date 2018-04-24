@@ -39,9 +39,15 @@ public class Database {
                     supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\");");
             // stmt.executeUpdate("INSERT INTO Supplier VALUES (123,123,'124','123')");
 
+<<<<<<< HEAD
             output ="Add supplier succeeded";
         } catch (SQLException e) {
             output ="Add supplier failed";
+=======
+            //System.out.println("Add supplier succeeded");
+        } catch (SQLException e) {
+            //System.out.println("Add supplier failed" );
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         }
         return output;
     }
@@ -212,6 +218,11 @@ public class Database {
     ////////////////////////////order:
 
     public String add_order(Order order) {
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         String output = "";
         try {
             Supplier s = select_supplier(order.supplierId);
@@ -234,24 +245,40 @@ public class Database {
         }catch (Exception e){
             output = "Add Order failed" ;
         }
+<<<<<<< HEAD
         return output;
     }
 
     public String updateOrder(int catalogId ,String filed, String value){
         String output;
+=======
+        return (output);
+    }
+
+    public String updateOrder(int catalogId ,String filed, String value){
+
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         String sql = "UPDATE Oredrs SET " +filed+ "= ?  where catalogId = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, catalogId);
-            if(filed =="quanttity"||filed =="recived" ) {
+            if(filed =="quanttity"||filed =="recived") {
                 pstmt.setInt(1,  Integer.parseInt(value));
             }
             else if(filed =="orderDate" || filed =="arrivalDate") {
                 pstmt.setString(1,value);
             }
             pstmt.executeUpdate();
+<<<<<<< HEAD
             output = "update order succeed";
         } catch (SQLException e) {
             output =  "update order failed";
+=======
+
+            return ("succeed");
+        } catch (SQLException e) {
+
+            return( "failed");
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         }
         return output;
     }
@@ -333,11 +360,19 @@ public class Database {
         } catch (SQLException e) {
             output = "Add Discount failed" +e;
         }
+<<<<<<< HEAD
+=======
+        //System.out.println(output);
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         return  output;
     }
 
     public String updateDiscount(int catalogId ,int quanttity ,int newDiscount){
+<<<<<<< HEAD
         String output;
+=======
+
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, newDiscount);
@@ -345,9 +380,15 @@ public class Database {
             pstmt.setInt(3, quanttity);
 
             pstmt.executeUpdate();
+<<<<<<< HEAD
             output = "update discount succeed";
         } catch (SQLException e) {
             output = "update discount failed";
+=======
+            return ("succeed");
+        } catch (SQLException e) {
+           return ( "failed");
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         }
         return output;
     }
@@ -367,6 +408,11 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
+<<<<<<< HEAD
+=======
+            //System.out.println("faild select Discount");
+
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         }
         return d;
     }
@@ -400,21 +446,35 @@ public class Database {
         }catch (Exception e){
             output = "Add Contact failed no such supplier" ;
         }
+<<<<<<< HEAD
+=======
+       // System.out.println(output);
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         return output;
 
     }
 
     //not god!!!!!!!!!!!!!!!!!!!!!!
     public String updateContact(int supplierId ,String filed ,String newVal){
+<<<<<<< HEAD
         String output ;
+=======
+
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         String sql = "UPDATE Discount SET discount= ?  where catalogId = ? AND quanttity = ? ";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, supplierId);
             pstmt.setString(1, newVal);
             pstmt.executeUpdate();
+<<<<<<< HEAD
             output = "update contact succeed";
         } catch (SQLException e) {
             output= "update contact failed";
+=======
+            return ("succeed");
+        } catch (SQLException e) {
+            return( "failed");
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         }
         return output;
     }
@@ -436,6 +496,11 @@ public class Database {
             }
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
+<<<<<<< HEAD
+=======
+            //System.out.println("faild select Order");
+
+>>>>>>> b782fb1493999221ed07c30b4d3391fa65c351cb
         }
         return newOrder;
     }

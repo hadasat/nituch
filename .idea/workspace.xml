@@ -16,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="UserConsole.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserConsole.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2120">
-              <caret line="57" column="7" lean-forward="false" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+            <state relative-caret-position="760">
+              <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,11 +28,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newSupplier/src/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Discount.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newSupplier/src/Discount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="400">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -41,41 +51,41 @@
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="69" column="44" lean-forward="false" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
+            <state relative-caret-position="16440">
+              <caret line="414" column="51" lean-forward="false" selection-start-line="414" selection-start-column="50" selection-end-line="414" selection-end-column="51" />
               <folding>
-                <marker date="1524439480122" expanded="true" signature="1026:1189" ph="INSERT INTO Supplier... " />
-                <marker date="1524439480122" expanded="true" signature="1574:1630" ph="UPDATE Suppl... " />
-                <marker date="1524439480122" expanded="true" signature="2135:2176" ph="SELECT * FRO... Supplier" />
-                <marker date="1524439480122" expanded="true" signature="2135:2191" ph="SELECT * FRO... Supplier" />
-                <marker date="1524439480122" expanded="true" signature="2966:2988" ph="SELECT * FRO... Supplier" />
-                <marker date="1524439480122" expanded="true" signature="2966:2989" ph="SELECT * FRO... Supplier" />
-                <marker date="1524439480122" expanded="true" signature="3934:4073" ph="INSERT INTO Item... " />
-                <marker date="1524439480122" expanded="true" signature="4342:4406" ph="UPDATE Item " />
-                <marker date="1524439480122" expanded="true" signature="4911:4978" ph="SELECT * FRO... Item" />
-                <marker date="1524439480122" expanded="true" signature="5818:5836" ph="SELECT * FRO... Item" />
-                <marker date="1524439480122" expanded="true" signature="5818:5837" ph="SELECT * FRO... Item" />
-                <marker date="1524439480122" expanded="true" signature="7157:7379" ph="INSERT INTO Contact... " />
-                <marker date="1524439480122" expanded="true" signature="7782:7835" ph="UPDATE Oredr... " />
-                <marker date="1524439480122" expanded="true" signature="8459:8497" ph="SELECT * FRO... Oredrs" />
-                <marker date="1524439480122" expanded="true" signature="9477:9546" ph="SELECT * FRO... Oredrs" />
-                <marker date="1524439480122" expanded="true" signature="10752:10857" ph="INSERT INTO Discount... " />
-                <marker date="1524439480122" expanded="true" signature="10752:10882" ph="INSERT INTO Discount... " />
-                <marker date="1524439480122" expanded="true" signature="11195:11265" ph="UPDATE Disco... " />
-                <marker date="1524439480122" expanded="true" signature="11731:11801" ph="SELECT * FRO... Discount" />
-                <marker date="1524439480122" expanded="true" signature="12969:13150" ph="INSERT INTO Contact... " />
-                <marker date="1524439480122" expanded="true" signature="13643:13713" ph="UPDATE Disco... " />
-                <marker date="1524439480122" expanded="true" signature="14149:14188" ph="SELECT * FRO... Contact" />
+                <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+                <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+                <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+                <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+                <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+                <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+                <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+                <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+                <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+                <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+                <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+                <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+                <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+                <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+                <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+                <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+                <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+                <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+                <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+                <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+                <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+                <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testDatabase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newSupplier/src/testDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="280">
+              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,6 +117,7 @@
       <find>addN</find>
       <find>add</find>
       <find>select</find>
+      <find>select_Discount</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -123,9 +134,9 @@
         <option value="$PROJECT_DIR$/newSupplier/src/Contact.java" />
         <option value="$PROJECT_DIR$/newSupplier/src/Supplier.java" />
         <option value="$PROJECT_DIR$/newSupplier/src/Order.java" />
-        <option value="$PROJECT_DIR$/newSupplier/src/UserConsole.java" />
-        <option value="$PROJECT_DIR$/newSupplier/src/Database.java" />
         <option value="$PROJECT_DIR$/newSupplier/src/testDatabase.java" />
+        <option value="$PROJECT_DIR$/newSupplier/src/Database.java" />
+        <option value="$PROJECT_DIR$/newSupplier/src/UserConsole.java" />
       </list>
     </option>
   </component>
@@ -137,7 +148,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-16" />
-    <option name="width" value="3857" />
+    <option name="width" value="3861" />
     <option name="height" value="2092" />
   </component>
   <component name="ProjectView">
@@ -183,9 +194,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,7 +210,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../sqlite-jdbc-3.21.0 (1).jar!/" />
   </component>
-  <component name="RunManager" selected="JUnit.testDatabase.selectOrderSusseced">
+  <component name="RunManager" selected="Application.UserConsole">
     <configuration default="false" name="UserConsole" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="UserConsole" />
@@ -622,8 +633,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.testDatabase.selectOrderSusseced" />
-        <item index="1" class="java.lang.String" itemvalue="Application.UserConsole" />
+        <item index="0" class="java.lang.String" itemvalue="Application.UserConsole" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.testDatabase.selectOrderSusseced" />
       </list>
     </recent_temporary>
   </component>
@@ -642,6 +653,8 @@
       <workItem from="1524390792720" duration="3858000" />
       <workItem from="1524424150604" duration="12724000" />
       <workItem from="1524467766327" duration="36000" />
+      <workItem from="1524508406694" duration="3929000" />
+      <workItem from="1524552754798" duration="1257000" />
     </task>
     <servers />
   </component>
@@ -663,27 +676,28 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30235000" />
+    <option name="totallyTimeSpent" value="35421000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="0" width="3857" height="2092" extended-state="1" />
+    <frame x="-16" y="0" width="3861" height="2092" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944444" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40833333" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40833333" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24993464" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24967355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -695,7 +709,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973558" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -711,7 +724,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/newSupplier/src/testDatabase.java</url>
-          <line>11</line>
+          <line>12</line>
           <properties />
         </line-breakpoint>
       </breakpoints>
@@ -724,6 +737,148 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Discount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16440">
+          <caret line="414" column="51" lean-forward="false" selection-start-line="414" selection-start-column="50" selection-end-line="414" selection-end-column="51" />
+          <folding>
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/testDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2120">
+          <caret line="57" column="7" lean-forward="false" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Discount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="69" column="44" lean-forward="false" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
+          <folding>
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/testDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2120">
@@ -747,28 +902,28 @@
         <state relative-caret-position="2640">
           <caret line="69" column="44" lean-forward="true" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
           <folding>
-            <marker date="1524439480122" expanded="true" signature="1026:1189" ph="INSERT INTO Supplier... " />
-            <marker date="1524439480122" expanded="true" signature="1574:1630" ph="UPDATE Suppl... " />
-            <marker date="1524439480122" expanded="true" signature="2135:2176" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2135:2191" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2988" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2989" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="3934:4073" ph="INSERT INTO Item... " />
-            <marker date="1524439480122" expanded="true" signature="4342:4406" ph="UPDATE Item " />
-            <marker date="1524439480122" expanded="true" signature="4911:4978" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5836" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5837" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="7157:7379" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="7782:7835" ph="UPDATE Oredr... " />
-            <marker date="1524439480122" expanded="true" signature="8459:8497" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="9477:9546" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="10752:10857" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="10752:10882" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="11195:11265" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="11731:11801" ph="SELECT * FRO... Discount" />
-            <marker date="1524439480122" expanded="true" signature="12969:13150" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="13643:13713" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="14149:14188" ph="SELECT * FRO... Contact" />
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
           </folding>
         </state>
       </provider>
@@ -822,28 +977,28 @@
         <state relative-caret-position="9120">
           <caret line="231" column="33" lean-forward="false" selection-start-line="231" selection-start-column="33" selection-end-line="231" selection-end-column="33" />
           <folding>
-            <marker date="1524439480122" expanded="true" signature="1026:1189" ph="INSERT INTO Supplier... " />
-            <marker date="1524439480122" expanded="true" signature="1574:1630" ph="UPDATE Suppl... " />
-            <marker date="1524439480122" expanded="true" signature="2135:2176" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2135:2191" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2988" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2989" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="3934:4073" ph="INSERT INTO Item... " />
-            <marker date="1524439480122" expanded="true" signature="4342:4406" ph="UPDATE Item " />
-            <marker date="1524439480122" expanded="true" signature="4911:4978" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5836" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5837" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="7157:7379" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="7782:7835" ph="UPDATE Oredr... " />
-            <marker date="1524439480122" expanded="true" signature="8459:8497" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="9477:9546" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="10752:10857" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="10752:10882" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="11195:11265" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="11731:11801" ph="SELECT * FRO... Discount" />
-            <marker date="1524439480122" expanded="true" signature="12969:13150" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="13643:13713" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="14149:14188" ph="SELECT * FRO... Contact" />
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
           </folding>
         </state>
       </provider>
@@ -917,28 +1072,28 @@
         <state relative-caret-position="10440">
           <caret line="264" column="0" lean-forward="true" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
           <folding>
-            <marker date="1524439480122" expanded="true" signature="1026:1189" ph="INSERT INTO Supplier... " />
-            <marker date="1524439480122" expanded="true" signature="1574:1630" ph="UPDATE Suppl... " />
-            <marker date="1524439480122" expanded="true" signature="2135:2176" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2135:2191" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2988" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2989" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="3934:4073" ph="INSERT INTO Item... " />
-            <marker date="1524439480122" expanded="true" signature="4342:4406" ph="UPDATE Item " />
-            <marker date="1524439480122" expanded="true" signature="4911:4978" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5836" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5837" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="7157:7379" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="7782:7835" ph="UPDATE Oredr... " />
-            <marker date="1524439480122" expanded="true" signature="8459:8497" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="9477:9546" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="10752:10857" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="10752:10882" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="11195:11265" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="11731:11801" ph="SELECT * FRO... Discount" />
-            <marker date="1524439480122" expanded="true" signature="12969:13150" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="13643:13713" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="14149:14188" ph="SELECT * FRO... Contact" />
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
           </folding>
         </state>
       </provider>
@@ -996,28 +1151,28 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524439480122" expanded="true" signature="1026:1189" ph="INSERT INTO Supplier... " />
-            <marker date="1524439480122" expanded="true" signature="1574:1630" ph="UPDATE Suppl... " />
-            <marker date="1524439480122" expanded="true" signature="2135:2176" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2135:2191" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2988" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2989" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="3934:4073" ph="INSERT INTO Item... " />
-            <marker date="1524439480122" expanded="true" signature="4342:4406" ph="UPDATE Item " />
-            <marker date="1524439480122" expanded="true" signature="4911:4978" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5836" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5837" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="7157:7379" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="7782:7835" ph="UPDATE Oredr... " />
-            <marker date="1524439480122" expanded="true" signature="8459:8497" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="9477:9546" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="10752:10857" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="10752:10882" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="11195:11265" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="11731:11801" ph="SELECT * FRO... Discount" />
-            <marker date="1524439480122" expanded="true" signature="12969:13150" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="13643:13713" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="14149:14188" ph="SELECT * FRO... Contact" />
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
           </folding>
         </state>
       </provider>
@@ -1027,14 +1182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21840">
           <caret line="579" column="0" lean-forward="false" selection-start-line="579" selection-start-column="0" selection-end-line="579" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newSupplier/src/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,28 +1209,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newSupplier/src/Discount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1334">
           <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2120">
-          <caret line="57" column="7" lean-forward="false" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,41 +1244,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/testDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="69" column="44" lean-forward="false" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
+        <state relative-caret-position="280">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
-            <marker date="1524439480122" expanded="true" signature="1026:1189" ph="INSERT INTO Supplier... " />
-            <marker date="1524439480122" expanded="true" signature="1574:1630" ph="UPDATE Suppl... " />
-            <marker date="1524439480122" expanded="true" signature="2135:2176" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2135:2191" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2988" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="2966:2989" ph="SELECT * FRO... Supplier" />
-            <marker date="1524439480122" expanded="true" signature="3934:4073" ph="INSERT INTO Item... " />
-            <marker date="1524439480122" expanded="true" signature="4342:4406" ph="UPDATE Item " />
-            <marker date="1524439480122" expanded="true" signature="4911:4978" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5836" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="5818:5837" ph="SELECT * FRO... Item" />
-            <marker date="1524439480122" expanded="true" signature="7157:7379" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="7782:7835" ph="UPDATE Oredr... " />
-            <marker date="1524439480122" expanded="true" signature="8459:8497" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="9477:9546" ph="SELECT * FRO... Oredrs" />
-            <marker date="1524439480122" expanded="true" signature="10752:10857" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="10752:10882" ph="INSERT INTO Discount... " />
-            <marker date="1524439480122" expanded="true" signature="11195:11265" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="11731:11801" ph="SELECT * FRO... Discount" />
-            <marker date="1524439480122" expanded="true" signature="12969:13150" ph="INSERT INTO Contact... " />
-            <marker date="1524439480122" expanded="true" signature="13643:13713" ph="UPDATE Disco... " />
-            <marker date="1524439480122" expanded="true" signature="14149:14188" ph="SELECT * FRO... Contact" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newSupplier/src/testDatabase.java">
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Discount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16440">
+          <caret line="414" column="51" lean-forward="false" selection-start-line="414" selection-start-column="50" selection-end-line="414" selection-end-column="51" />
+          <folding>
+            <marker date="1524510799599" expanded="true" signature="828:991" ph="INSERT INTO Supplier... " />
+            <marker date="1524510799599" expanded="true" signature="1380:1436" ph="UPDATE Suppl... " />
+            <marker date="1524510799599" expanded="true" signature="1941:1982" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="1941:1997" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2796" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="2774:2797" ph="SELECT * FRO... Supplier" />
+            <marker date="1524510799599" expanded="true" signature="3744:3883" ph="INSERT INTO Item... " />
+            <marker date="1524510799599" expanded="true" signature="4152:4216" ph="UPDATE Item " />
+            <marker date="1524510799599" expanded="true" signature="4721:4788" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5648" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="5630:5649" ph="SELECT * FRO... Item" />
+            <marker date="1524510799599" expanded="true" signature="6973:7195" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="7589:7642" ph="UPDATE Oredr... " />
+            <marker date="1524510799599" expanded="true" signature="8243:8281" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="9263:9332" ph="SELECT * FRO... Oredrs" />
+            <marker date="1524510799599" expanded="true" signature="10540:10645" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10540:10670" ph="INSERT INTO Discount... " />
+            <marker date="1524510799599" expanded="true" signature="10987:11057" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="11500:11570" ph="SELECT * FRO... Discount" />
+            <marker date="1524510799599" expanded="true" signature="12740:12921" ph="INSERT INTO Contact... " />
+            <marker date="1524510799599" expanded="true" signature="13418:13488" ph="UPDATE Disco... " />
+            <marker date="1524510799599" expanded="true" signature="13901:13940" ph="SELECT * FRO... Contact" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newSupplier/src/UserConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
