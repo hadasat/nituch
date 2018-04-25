@@ -10,26 +10,21 @@ import java.util.Scanner;
 public class UserConsole {
 
     private static Scanner in = new Scanner(System.in);
-    private static Database databaseConn;
+    private static DataSection.Database databaseConn;
 
     public static void main(String[] args) {
 
-        databaseConn = new Database();
-        System.out.println("please select an action by choosing the index: \n" +
-                "1.add new supplier\n" +
-                "2.add new contact for supplier\n" +
+        databaseConn = new DataSection.Database();
+        DataSection.Supplier supplier = new DataSection.Supplier(12341234, 234123122, "check", "Payments");
+        System.out.println(databaseConn.add_Supplier(supplier));
+        System.out.println("please select an action by choosing the index or choose to quit by q: \n" +
+                "1.add new supplier \n" +
+                "2.add new contact for supplier \n" +
                 "3.show discounts \n" +
                 "4.order report by supplier\n" +
                 "5.change supplier detailes\n" +
                 "6.add new discount\n" +
-                "7.print the menu again\n"+
-
-                "8.show all not-recived orders\n" +
-                "9.print all suppliers\n" +
-                "10.print all items"
-
-
-        );
+                "7.print the menu again");
         String s = in.nextLine();
         while (s != "q"){
             switch (s) {
@@ -59,36 +54,20 @@ public class UserConsole {
                             "4.order report by supplier\n" +
                             "5.change supplier detailes\n" +
                             "6.add new discount\n" +
-                            "7.print the menu again\n"+
-
-                            "8.show all not-recived orders\n" +
-                            "9.print all suppliers\n" +
-                            "10.print all items"
-
-
-                    );
+                            "7.print the menu again");
                     break;
-                case ("8"):
-                    sowh_all_not_recived_orders();
-                    break;
-                case ("9"):
-                    showALL_Suppliers();
-                    break;
-                case ("10"):
-                    showALL_items();
-                    break;
-
                 default:
                     System.out.println("please enter a valid command");
             }
-            System.out.println("please enter q for quit, action number or 7 for menu: ");
+            System.out.println("please enter q for quit, action number or ");
             s = in.nextLine();
         }
     }
 
+<<<<<<< HEAD
     public static void add_order(){
 
-        Order orderToAdd  =new Order();
+        DataSection.Order orderToAdd  =new DataSection.Order();
         String supplierId = "";
         String orderId = "";
 
@@ -170,18 +149,18 @@ public class UserConsole {
 
 
 
-            orderToAdd= new Order(Integer.parseInt(supplierId),Integer.parseInt(orderId),Integer.parseInt(catalogId),Integer.parseInt(quanttity),orderDate, Integer.parseInt(recived), arrivalDate);
+            orderToAdd= new DataSection.Order(Integer.parseInt(supplierId),Integer.parseInt(orderId),Integer.parseInt(catalogId),Integer.parseInt(quanttity),orderDate, Integer.parseInt(recived), arrivalDate);
             databaseConn.add_order(orderToAdd);
 
         }catch (Exception e){
-            System.out.println("failed! ");
+            System.out.println("failed to add DataSection.Order .");
         }
 
     }
-    public static void print_Suppliers_List(List<Supplier> l){
+    public static void print_Suppliers_List(List<DataSection.Supplier> l){
 
 
-        for (Supplier i: l
+        for (DataSection.Supplier i: l
                 ) {
             System.out.println("\nsupplierId: "+i.supplierId);
             System.out.println("bankAccount: "+i.bankAccount);
@@ -192,7 +171,7 @@ public class UserConsole {
     public static void showALL_Suppliers(){
 
         try {
-            List<Supplier> all_s = databaseConn.select_ALL_supplier();
+            List<DataSection.Supplier> all_s = databaseConn.select_ALL_supplier();
             print_Suppliers_List(all_s);
         }catch (Exception e){
             System.out.println("failed! ");
@@ -200,8 +179,8 @@ public class UserConsole {
 
     }
 
-    public static void printItemList(List<Item> l){
-        for (Item i: l
+    public static void printItemList(List<DataSection.Item> l){
+        for (DataSection.Item i: l
                 ) {
             System.out.println("\ncatalogId: "+i.catalogId);
             System.out.println("supplierId: "+i.supplierId);
@@ -213,16 +192,16 @@ public class UserConsole {
 
 
         try {
-            List<Item> all_items = databaseConn.select_ALL_Item();
+            List<DataSection.Item> all_items = databaseConn.select_ALL_Item();
             printItemList(all_items);
         }catch (Exception e){
-            System.out.println("failed! ");
+            System.out.println("failed to select item.");
         }
 
     }
 
-    public static void printOrderList(List<Order> l){
-        for (Order i: l
+    public static void printOrderList(List<DataSection.Order> l){
+        for (DataSection.Order i: l
                 ) {
 
             System.out.println("\norderId: "+i.orderId);
@@ -249,15 +228,18 @@ public class UserConsole {
             }
         }
         try {
-            List<Order> allOrd = databaseConn.select_Not_Recived_Orders(Integer.parseInt(supplierId));
+            List<DataSection.Order> allOrd = databaseConn.select_Not_Recived_Orders(Integer.parseInt(supplierId));
            printOrderList(allOrd);
         }catch (Exception e){
-            System.out.println("failed! ");
+            System.out.println("failed to select DataSection.Order probably this supplier dos not have unrecived orders.");
         }
 
     }
 
     public static void addNewSupplier() {
+=======
+    private static void addNewSupplier() {
+>>>>>>> 2c6b8a35d4c604b5d5b179ee7401359812832ad8
         boolean a = true;
 
         String supplierId = "";
@@ -301,11 +283,7 @@ public class UserConsole {
             System.out.println("please enter payment form between 1-3");
             supplyFormIn = in.nextLine();
         }
-<<<<<<< HEAD
         String supplyForm = "";
-=======
-        String supplyForm="";
->>>>>>> a1be9ee9b4f314438c52a2ac2752df83a685e088
         if (supplyFormIn.equals("2")) {
             System.out.println("please enter days of delivery and \",\" between : 1. Sunday, 2. Monday 3. Tuesday 4. Wednesday 5. Thursday 6. Friday\n ");
             String daysIndex = in.nextLine();
@@ -338,12 +316,12 @@ public class UserConsole {
             if (supplyForm.length() == 0)
                 supplyForm = "Regular days";
         }
-        Supplier supplier = new Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
+        DataSection.Supplier supplier = new DataSection.Supplier(Integer.parseInt(supplierId), Integer.parseInt(bankAccount), payment, supplyForm);
         databaseConn.add_Supplier(supplier);
     }
 
 
-    public static boolean addNewContact() {
+    private static boolean addNewContact() {
         String supplierId="";
         while (true){
             System.out.println("please enter supplierId");
@@ -363,9 +341,10 @@ public class UserConsole {
         String phoneNumber = in.nextLine();
         System.out.println("please enter email");
         String email = in.nextLine();
-        Contact newContact = new Contact(Integer.parseInt(supplierId), firstName, lastName, phoneNumber, email);
+        DataSection.Contact newContact = new DataSection.Contact(Integer.parseInt(supplierId), firstName, lastName, phoneNumber, email);
         try {
             databaseConn.add_Contact(newContact);
+            System.out.println("failed to add DataSection.Contact");
             return  true;
         }catch (Exception e){
             return  false;
@@ -373,7 +352,7 @@ public class UserConsole {
 
     }
 
-    public static boolean showDiscounts(){
+    private static boolean showDiscounts(){
         String catalogId="";
         String quantity="";
         while (true){
@@ -404,6 +383,7 @@ public class UserConsole {
             databaseConn.select_Discount(Integer.parseInt(catalogId),Integer.parseInt(quantity));
             return  true;
         }catch (Exception e){
+            System.out.println("failed to select DataSection.Discount probably this supplier dos not have agreements yet.");
             return  false;
         }
 
@@ -411,7 +391,7 @@ public class UserConsole {
     }
 
 
-    public static boolean orderReportBySupplier(){
+    private static boolean orderReportBySupplier(){
         String supplierId ="";
 
         while (true){
@@ -425,17 +405,18 @@ public class UserConsole {
             }
         }
 
-        List<Order> orders;
+        List<DataSection.Order> orders;
         try {
             orders = databaseConn.select_Order(Integer.parseInt(supplierId));
 
         }catch (Exception e){
+            System.out.println("failed to select DataSection.Order probably this supplier dos not have orders yet .");
             return  false;
         }
 
 
         int index = 0;
-        for(Order order:orders){
+        for(DataSection.Order order:orders){
             String output = index + ". order id: " + order.orderId +", quantity: " + order.quanttity +
                     ", arrival date: " + order.arrivalDate + ", ordered Date: "+order.orderDate +
                     ", supplier id: " + order.supplierId + ", catalog id: "+order.catalogId + ", recived: ";
@@ -449,7 +430,7 @@ public class UserConsole {
         return true;
     }
 
-    public static boolean changeSupplierDetailes(){
+    private static boolean changeSupplierDetailes(){
         String supplierId ="";
 
         while (true){
@@ -478,13 +459,14 @@ public class UserConsole {
             databaseConn.updateSupplier(Integer.parseInt(supplierId),filed,value);
             return  true;
         }catch (Exception e){
+            System.out.println("failed to update DataSection.Supplier");
             return  false;
         }
 
     }
 
 
-    public static boolean addNewDiscount() {
+    private static boolean addNewDiscount() {
         boolean invalid = true;
         String catalogId="";
         String quanttity="";
@@ -528,29 +510,30 @@ public class UserConsole {
 
 
                 invalid = false;
-                Discount discount = new Discount(Integer.parseInt(catalogId),Integer.parseInt(quanttity),Integer.parseInt(discountValue));
+                DataSection.Discount discount = new DataSection.Discount(Integer.parseInt(catalogId),Integer.parseInt(quanttity),Integer.parseInt(discountValue));
 
                 try {
                     databaseConn.add_Discount(discount);
 
                 }catch (Exception e){
+                    System.out.println("\nfailed to add DataSection.Discount");
                     return  false;
                 }
 
             } catch (NumberFormatException e) {
-                System.out.println("your inputs are illegals");
+                System.out.println("\nyour inputs are illegals");
             }
 
         }
         return  true;
     }
     /*
-        public List<Order> select_Last_Order(String supplierId) {
-            List<Order> newOrder = new ArrayList<Order>();
+        public List<DataSection.Order> select_Last_Order(String supplierId) {
+            List<DataSection.Order> newOrder = new ArrayList<DataSection.Order>();
             newOrder = databaseConn.select_Order(supplierId);
             Date maxDate = newOrder.stream().map(u -> u.orderDate).max(Date::compareTo).get();
-            List<Order> anser = new ArrayList<Order>();
-            for (Order o: newOrder
+            List<DataSection.Order> anser = new ArrayList<DataSection.Order>();
+            for (DataSection.Order o: newOrder
                     ) {
                 if(o.orderDate.equals(maxDate)){
                     anser.add(o);
@@ -562,7 +545,7 @@ public class UserConsole {
         }
         }
         */
-    public static boolean chooseAcction(String action) {
+    private static boolean chooseAcction(String action) {
 
         return  true;
     }

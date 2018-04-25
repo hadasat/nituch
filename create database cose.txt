@@ -1,0 +1,185 @@
+CREATE TABLE  Suppliers
+(
+
+	supplierId integer primary key,
+
+	bankAccount INTeger,
+
+	payment varchar,
+
+	supplyForm varchar,
+
+
+	
+	CONSTRAINT Supplier_payment Check(payment In ('check','cash','Payments'))
+
+);
+
+INSERT INTO Suppliers
+ VALUES ( 111111 ,11111,"check","Mon,Fri");
+INSERT INTO Suppliers
+ VALUES (122222,22222,"cash","Independent");
+INSERT INTO Suppliers
+ VALUES (133333,33333,"Payments","Arrive by order");
+
+CREATE TABLE Items 
+(
+
+	catalogId integer,
+
+	supplierId integer,
+
+	price INTeger,
+
+	manufacturer varchar,
+
+
+	
+	CONSTRAINT item_pk PRIMARY KEY (CatalogId,SupplierId),
+
+	CONSTRAINT item_FK FOREIGN KEY (supplierId) REFERENCES Supplier(supplierId) ON DELETE CASCADE
+
+
+);
+
+
+CREATE TRIGGER IF NOT EXISTS triggerAddItem
+BEFORE INSERT ON Items 
+WHEN new.supplierId NOT IN (SELECT supplierId FROM Suppliers WHERE supplierId = new.SupplierId is not null)
+BEGIN
+	SELECT RAISE(ABORT,"supplier dose not exist");
+End; 
+
+INSERT INTO Items VALUES (211111,111111,120,"elit");
+INSERT INTO Items VALUES (222222,122222,100,"elit");
+INSERT INTO Items VALUES (233333,133333,80,"nestle"); 
+
+------------------------------------------
+
+CREATE TABLE Discounts
+(
+
+	catalogId integer REFERENCES Item(catalogId) ON DELETE CASCADE,
+
+	quanttity integer,
+
+	discount integer,
+
+
+	
+	CONSTRAINT dis_pk PRIMARY KEY (CatalogId,quanttity),
+
+	CONSTRAINT CK_Discount_Column_Range CHECK (discount >= 0 AND discount < 100)
+);
+
+
+CREATE TRIGGER IF NOT EXISTS triggerAddDisscount
+BEFORE INSERT ON Discounts
+
+WHEN new.catalogId NOT IN (SELECT catalogId FROM Items WHERE catalogId = new.catalogId is not null)
+BEGIN
+	SELECT RAISE(ABORT,"item dose not exist");
+End; 
+
+INSERT INTO Discounts 
+VALUES ( 211111 , 3000 , 5 );
+INSERT INTO Discounts
+ VALUES ( 211111 , 5000 , 10 );
+INSERT INTO Discounts
+ VALUES ( 233333 , 100 , 2 );
+
+CREATE TABLE Contacts 
+(
+
+	supplierId integer ,
+
+	firstName varchar (15),
+
+	lastName varchar (15),
+
+	phoneNumber varchar(10) not null,
+
+	email varchar,
+
+
+	
+	CONSTRAINT item_pk PRIMARY KEY (phoneNumber,SupplierId),
+
+	CONSTRAINT Workers_fName check (firstName not like '%[0-9]%'),
+
+	CONSTRAINT Workers_fzName check (lastName not like '%[0-9]%'),
+
+	CONSTRAINT contact_fk FOREIGN KEY (supplierId) REFERENCES Supplier(supplierId) ON DELETE CASCADE
+
+);
+
+
+CREATE TRIGGER IF NOT EXISTS triggerAddContact
+BEFORE INSERT ON Contacts 
+WHEN new.supplierId NOT IN (SELECT supplierId FROM Suppliers WHERE supplierId = new.SupplierId is not null)
+BEGIN
+	SELECT RAISE(ABORT,"supplier dose not exist");
+End; 
+
+
+INSERT INTO Contacts VALUES ( 111111 , "Hadas" , "At" , "0547777777" , "hadas@gmail.com" );
+INSERT INTO Contacts VALUES ( 122222, "Elhanan" , "Per" , "0546666666" , "elhanan@gmail.com" );
+INSERT INTO Contacts VALUES ( 133333, "Omer" , "Mar" , "0543333333" , "omer@gmail.com" );
+
+CREATE TABLE Orders
+(
+
+	orderId integer PRIMARY KEY,
+	supplierId integer,
+	
+orderDate date,
+
+	recived int,
+
+	arrivalDate date,
+
+	CONSTRAINT item_FK FOREIGN KEY (supplierId) REFERENCES Supplier(supplierId) ON DELETE CASCADE
+
+);
+
+CREATE TRIGGER IF NOT EXISTS triggerAddOrder
+BEFORE INSERT ON Orders
+WHEN new.supplierId NOT IN (SELECT supplierId FROM Suppliers WHERE supplierId = new.SupplierId is not null)
+BEGIN
+	SELECT RAISE(ABORT,"supplier dose not exist");
+End; 
+
+INSERT INTO Orders
+ VALUES (100 ,111111 ,'21/01/2018' ,1, '24/01/2018' );
+INSERT INTO Orders
+ VALUES (101 ,122222 ,'22/04/2018' ,0, '' );
+
+CREATE TABLE ItemsInOrders
+(
+
+	orderId integer REFERENCES Orders(orderId) ON DELETE CASCADE,
+	catalogId integer REFERENCES Items(catalogId) ON DELETE CASCADE,
+	quanttity integer,
+
+	
+	
+	CONSTRAINT orders_pk PRIMARY KEY (orderId,catalogId)
+
+
+);
+
+
+
+CREATE TRIGGER IF NOT EXISTS triggerAddItemToOrder
+BEFORE INSERT ON ItemsInOrders 
+WHEN new.orderId NOT IN (SELECT orderId FROM Orders WHERE orderId = new.orderId)
+BEGIN
+	SELECT RAISE(ABORT,"order dose not exist");
+End; 
+
+INSERT INTO ItemsInOrders
+ VALUES (100 ,222222,200 );
+INSERT INTO ItemsInOrders
+ VALUES (101 ,233333,200 );
+INSERT INTO ItemsInOrders
+ VALUES (100 ,211111,400 );
