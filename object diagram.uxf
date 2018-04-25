@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>430</y>
+      <w>170</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Order
+--
+supplierId : 101 
+orderId : 122222 
+orderDate : '22/04/2018'
+recived : no
++arrivalDate :""
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>280</y>
+      <w>180</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Contact
+--
+supplierId : 1111111
+firstName : "Omer"
+lastNam : "Mar"
+phoneNumber : 0543333333
+email : "omer@gmail.com"
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>280</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+catalogId : 211111
+supplierId : 111111
+price : 120
+manufacturer : "elit"
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>430</y>
+      <w>170</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Supplier
+--
+supplierId: 111111
+bankAccount : 11111
+payment : "check"
+supplyForm : "Mon,Fri" 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>180</y>
+      <w>170</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Discount
+--
+catalogId : 211111 
+quanttity : 3000 
+discount : 5
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>180</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ItemInOrders
+--
+orderId : 101
+catalogId : 22222
+quanttity : 200
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
