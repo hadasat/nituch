@@ -30,7 +30,7 @@ public class Database {
         try {
             connection.close();
         }
-        catch (Exception e){}
+        catch (Exception e){System.out.println("fail load data");}
     }
 
 
@@ -43,7 +43,6 @@ public class Database {
             stmt.executeUpdate("INSERT INTO Suppliers VALUES (" +supplier.supplierId +"," +
                     supplier.bankAccount +",\"" + supplier.payment + "\",\"" + supplier.supplyForm+ "\");");
             // stmt.executeUpdate("INSERT INTO DataSection.Supplier VALUES (123,123,'124','123')");
-
             output ="Add supplier succeeded";
         } catch (SQLException e) {
             output ="Add supplier failed";
@@ -53,7 +52,6 @@ public class Database {
 
 
     public String updateSupplier(int supplierId ,String filed, String value){
-
         String sql = "UPDATE Suppliers SET " +filed+ "= ?  where supplierId = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(2, supplierId);
@@ -69,6 +67,25 @@ public class Database {
             return "failed";
         }
 
+    }
+
+    public List<ItemInOrder> items_in_Order(int orderId){
+        String sql = "select * from ItemsInOrders where orderId=" + orderId;
+        List<ItemInOrder> items = new LinkedList<>();
+        try (Statement stmt  = connection.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            // loop through the result set
+            while (rs.next()) {
+                ItemInOrder item = new ItemInOrder();
+                item.orderId = rs.getInt("orderId");
+                item.catalogId = rs.getInt("catalogId");
+                item.quanttity= rs.getInt("quanttity");
+                items.add(item);
+            }
+        } catch (SQLException e) {
+
+        }
+        return items;
     }
 
     public Supplier select_supplier(int supplierId) {
@@ -87,7 +104,6 @@ public class Database {
             }
         } catch (SQLException e) {
             return s;
-
         }
         return s;
     }
@@ -248,7 +264,7 @@ public class Database {
     }
 
     public List<Order> select_Order(int supplierId) {
-        String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId  ;
+        String sql = "SELECT * FROM Orders WHERE supplierId=" +supplierId  ;
         List<Order> newOrder = new ArrayList<Order>();
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
@@ -274,7 +290,7 @@ public class Database {
 
 
     public List<Order> select_Not_Recived_Orders(int supplierId) {
-        String sql = "SELECT * FROM Oredrs WHERE supplierId=" +supplierId +"AND recived = 0"  ;
+        String sql = "SELECT * FROM Orders WHERE supplierId=" +supplierId +" AND recived = 0"  ;
         List<Order> newOrder = new ArrayList<Order>();
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
@@ -315,7 +331,7 @@ public class Database {
         String output ;
         try (Statement stmt  = connection.createStatement()){
             // loop through the result set
-            stmt.executeUpdate("INSERT INTO Discounts " + "VALUES (" +discount.catalogId +"," +
+            stmt.executeUpdate("INSERT INTO Discounts VALUES (" +discount.catalogId +"," +
                     discount.quanttity +"," + discount.discount +")" );
             output = "Add discount succeeded";
         } catch (SQLException e) {
@@ -345,7 +361,6 @@ public class Database {
         List<Discount> discounts = new LinkedList<>();
         try (Statement stmt  = connection.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-
             // loop through the result set
             while (rs.next()) {
                 Discount d = new Discount();
