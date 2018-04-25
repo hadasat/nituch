@@ -151,7 +151,10 @@ public class UserConsole {
 
         try {
             List<Supplier> all_s = databaseConn.select_ALL_supplier();
-            print_Suppliers_List(all_s);
+            if(all_s.size() > 0)
+                print_Suppliers_List(all_s);
+            else
+                System.out.println("There are not suppliers in the system");
         }catch (Exception e){
             System.out.println("failed! ");
         }
